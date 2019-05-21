@@ -60,6 +60,25 @@
 			  ";
 	mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Pengalaman: - Error: ".mysqli_error($db), E_USER_ERROR);
 
+
+	// UNTUK INPUTAN DATA PENDIDIKAN
+	$namaSekolah = $_POST['inputNamaSekolah'];
+	$jurusan 	 = $_POST['inputJurusan'];
+	$tahunMasuk  = $_POST['inputTahunMasuk'];
+	$tahunLulus  = $_POST['inputTahunLulus'];
+	// $ijazah 	 = $_POST['inputIjazah'];
+	// $transkrip	 = $_POST['inputTranskrip'];
+	$ijazah 	 = 'ijazah';
+	$transkrip	 = 'transkrip';
+	
+
+	$query 	= "INSERT INTO data_pendidikan
+			  	(id_pelamar, nama_sekolah, jurusan, tahun_masuk, tahun_lulus, ijazah, transkrip) 
+			  	VALUES 
+			  	($currentIdPelamar,'$namaSekolah','$jurusan','$tahunMasuk', '$tahunLulus', '$ijazah', '$transkrip')
+			  ";
+	mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Pendidikan: - Error: ".mysqli_error($db), E_USER_ERROR);
+
 	if(mysqli_error($db)){
 		$data['response'] ="GAGAL INPUT FORM";
 	}
@@ -68,23 +87,6 @@
 	}
 
 	echo json_encode($data);
-
-	// // UNTUK INPUTAN DATA PENDIDIKAN
-	// $namaSekolah = $_POST['inputNamaSekolah'];
-	// $jurusan 	 = $_POST['inputJurusan'];
-	// $tahunMasuk  = $_POST['inputTahunMasuk'];
-	// $tahunLulus  = $_POST['inputTahunLulus'];
-	// $ijazah 	 = $_POST['inputIjazah'];
-	// $transkrip	 = $_POST['inputTranskrip'];
-	
-
-	// $query 	= "INSERT INTO data_pendidikan
-	// 		  	(id_pelamar, nama_sekolah, jurusan, tahun_masuk, tahun_lulus, ijazah, transkrip) 
-	// 		  	VALUES 
-	// 		  	($currentIdPelamar,'$namaSekolah','$jurusan','$tahunMasuk', '$tahunLulus', '$ijazah', '$transkrip')
-	// 		  ";
-	// mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Pendidikan: - Error: ".mysqli_error($db), E_USER_ERROR);
-
 
 	// // UNTUK INPUTAN DATA KELUARGA
 	// $namaAyah 		= $_POST['inputNamaAyah'];

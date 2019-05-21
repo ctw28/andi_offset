@@ -125,6 +125,7 @@
 
     <!-- End Total Number of Constituents in Your Database Field -->
     <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">Bantuan?</div>
     
   </fieldset>
 
@@ -133,10 +134,10 @@
   <!-- ACQUISITION FIELD SET -->  
   <fieldset style="display: none;">
     <h2 class="fs-title">PENGALAMAN KERJA</h2>
-    <h3 class="fs-subtitle">How have you been doing in acquiring donors?</h3>
       <div>
     	<label for="inputPengalaman">Apakah Anda Memiliki Pengalam Kerja ?</label>
-    	<select name="inputPengalaman" id="inputPengalaman">
+    	<select name="inputPengalaman" id="inputPengalaman" required data-rule-required="true" 
+                   data-msg-required="Pengalaman Kerja Harus di isi>
     		<option value="Ya">Ada</option>
     		<option value="Tidak Ada">Tidak Ada</option>
     	</select>
@@ -178,58 +179,55 @@
 
     <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">Bantuan?</div>
   </fieldset>
 
 
 
   <!-- Cultivation FIELD SET -->  
   <fieldset>
-    <h2 class="fs-title">Cultivation and Nurturing your Donors</h2>
-    <h3 class="fs-subtitle">How have you been nurturing donors to get better donations?</h3>
+    <h2 class="fs-title">Data Pendidikan</h2>
       <!-- Begin Average Gift Size in Year 1 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field" id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
-        
-          <label for="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What was your average gift size in year 1? *</label>
+          	<div>
+		    	<label for="inputNamaSekolah">Nama Sekolah / Universitas</label>
+		    	<input type="text" name="inputNamaSekolah" id="inputNamaSekolah" required data-rule-required="true" 
+                   data-msg-required="Nama Sekolah / Universitas Harus diisi">
+		  	</div>
+		  	<div>
+		    	<label for="inputJurusan">Jurusan</label>
+		    	<input type="text" name="inputJurusan" id="inputJurusan" required data-rule-required="true" 
+                   data-msg-required="Jurusan Harus Di Isi">
+		  	</div>
+		  	<div>
+		    	<label for="inputTahunMasuk">Tahun Masuk</label>
+		    	<input type="number" name="inputTahunMasuk" id="inputTahunMasuk" required data-rule-required="true" 
+                   data-msg-required="Tahun Masuk harus diisi">
+		  	</div>
+		  	<div>
+		    	<label for="inputTahunLulus">Tahun Lulus</label>
+		    	<input type="number" name="inputTahunLulus" id="inputTahunLulus" required data-rule-required="true" 
+                   data-msg-required="Tahun Lulus Harus Diisi">
+		  	</div>
+		  	<div>
+		    	<label for="inputIjazah">Upload Ijazah</label>
+		    	<input type="file" name="inputIjazah" id="inputIjazah">
+		  	</div>
 
-          <input id="edit-submitted-cultivation-amount-1" class="form-text hs-input" name="average_gift_size_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        <!-- End Average Gift Size in Year 1 Field -->
-
-      <!-- Begin Average Gift Size in Year 2 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field" id="webform-component-cultivation--amount-2">
-        
-          <label for="edit-submitted-cultivation-amount-2 average_gift_size_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What was your average gift size in year 2? *</label>
-
-          <input id="edit-submitted-cultivation-amount-2" class="form-text hs-input" name="average_gift_size_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        <!-- End Average Gift Size in Year 2 Field -->
-
-      <!-- Begin Average Gift Size Perchent Change Field -->
-      <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
-        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_average_gift_size_percent_change field hs-form-field" id="webform-component-cultivation--percent-change1">
-        
-          <label for="edit-submitted-cultivation-percent-change1 average_gift_size_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">Average Gift Size Percent Change</label>
-
-          <input id="edit-submitted-cultivation-percent-change1" class="form-text hs-input" name="average_gift_size_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-        </div>
+		  	<div>
+		    	<label for="inputTranskrip">Upload Transkrip</label>
+		    	<input type="file" name="inputTranskrip" id="inputTranskrip">
+		  	</div>
         <!-- End Average Gift Size Perchent Change Field -->
     <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="3" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">Bantuan?</div>
   </fieldset>
 
 
 
   <!-- Cultivation2 FIELD SET --> 
   <fieldset>
-    <h2 class="fs-title">Total Cultivation in Donation</h2>
+    <h2 class="fs-title">Data Keluarga</h2>
     <h3 class="fs-subtitle">Let's talk about your donations as a whole</h3>
               <!-- Begin Total Giving In Year 1 Field -->
         <div class="form-item webform-component webform-component-textfield" id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
