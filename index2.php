@@ -228,44 +228,126 @@
   <!-- Cultivation2 FIELD SET --> 
   <fieldset>
     <h2 class="fs-title">Data Keluarga</h2>
-    <h3 class="fs-subtitle">Let's talk about your donations as a whole</h3>
-              <!-- Begin Total Giving In Year 1 Field -->
-        <div class="form-item webform-component webform-component-textfield" id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
-        
-          <label for=" edit-submitted-cultivation-amount-3 total_giving_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What was your total giving in Year 1? *</label>
-
-          <input id="edit-submitted-cultivation-amount-3" class="form-text hs-input" name="total_giving_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
+        <div class="form-group">
+          <label for="inputNamaAyah">Nama Ayah</label>
+          <input type="text" name="inputNamaAyah" id="inputNamaAyah" placeholder="Isikan Nama Ayah" required data-rule-required="true" 
+                   data-msg-required="Nama Ayah harus diisi">
         </div>
-        <!-- End Total Giving In Year 1 Field -->
-
-      <!-- Begin Total Giving In Year 2 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field" id="webform-component-cultivation--amount-4"> 
-        
-          <label for=" edit-submitted-cultivation-amount-4 total_giving_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What was your total giving in Year 2? *</label>
-
-          <input id="edit-submitted-cultivation-amount-4" class="form-text hs-input" name="total_giving_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-        <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
+        <div class="form-group">
+          <label for="inputUsiaAyah">Usia Ayah</label>
+          <input type="number" name="inputUsiaAyah" id="inputUsiaAyah" placeholder="Isikan Usia Ayah Anda" required data-rule-required="true" 
+                   data-msg-required="Usia Ayah harus diisi">
         </div>
-        
-        <!-- End Total Giving In Year 2 Field -->
-
-      <!-- Begin Average Gift Size Percent Change Field 2 -->
-      <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
-        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_total_giving_percent_change field hs-form-field" id="webform-component-cultivation--percent-change2">
-
-          <label for=" edit-submitted-cultivation-percent-change2 total_giving_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">Average Gift Size Percent Change</label>
-
-          <input id="edit-submitted-cultivation-percent-change2" class="form-text hs-input" name="total_giving_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
+        <div class="form-group">
+          <label for="inputPekerjaanAyah">Pekerjaan Ayah</label>
+          <input type="text" name="inputPekerjaanAyah" id="inputPekerjaanAyah" placeholder="Isikan Pekerjaan Ayah" required data-rule-required="true" 
+                   data-msg-required="Pekerjaan Ayah harus diisi">
         </div>
-        <!-- End Average Gift Size Percent Change Field 2 -->
+        <div class="form-group">
+          <label for="inputNoTelpAyah">No Telepon Ayah</label>
+          <input type="number" name="inputNoTelpAyah" id="inputNoTelpAyah" placeholder="Isikan No Telepon Ayah">
+        </div>
+        <div class="form-group">
+          <label for="inputStatusAyah">Status Ayah</label>
+          <select name="inputStatusAyah" id="inputStatusAyah" required data-rule-required="true" 
+                   data-msg-required="Status Ayah harus diisi">
+            <option value="" selected="selected">Pilih Status Hidup</option>
+            <option value="Hidup">Hidup</option>
+            <option value="Meninggal">Meninggal</option>
+          </select>
+        </div>
+
+        <div id="ayah_tiri" style="display: none; padding-left: 80px">
+            <div class="form-group">
+              <label for="inputNamaAyahTiri">Nama Ayah Tiri (Jika Ada)</label>
+              <input type="text" name="inputNamaAyahTiri" id="inputNamaAyahTiri" placeholder="Isikan Nama Ayah Tiri">
+            </div>
+            <div class="form-group">
+              <label for="inputUsiaAyahTiri">Usia Ayah Tiri</label>
+              <input type="number" name="inputUsiaAyahTiri" id="inputUsiaAyahTiri" placeholder="Isikan Usia Ayah Tiri Anda">
+            </div>
+            <div class="form-group">
+              <label for="inputPekerjaanAyahTiri">Pekerjaan Ayah Tiri</label>
+              <input type="text" name="inputPekerjaanAyahTiri" id="inputPekerjaanAyahTiri" placeholder="Isikan Pekerjaan Ayah Tiri">
+            </div>
+            <div class="form-group">
+              <label for="inputNoTelpAyahTiri">No Telepon Ayah Tiri</label>
+              <input type="number" name="inputNoTelpAyahTiri" id="inputNoTelpAyahTiri" placeholder="Isikan No Telepon Ayah Tiri">
+            </div>
+            <div class="form-group">
+              <label for="inputStatusAyahTiri">Status Ayah Tiri</label>
+              <select name="inputStatusAyahTiri" id="inputStatusAyahTiri">
+                <option value="Hidup">Hidup</option>
+                <option value="Meninggal">Meninggal</option>
+              </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="inputNamaIbu">Nama Ibu</label>
+          <input type="text" name="inputNamaIbu" id="inputNamaIbu" placeholder="Isikan Nama Ibu" required data-rule-required="true" 
+                   data-msg-required="Nama Ibu harus diisi">
+        </div>
+        <div class="form-group">
+          <label for="inputUsiaIbu">Usia Ibu</label>
+          <input type="number" name="inputUsiaIbu" id="inputUsiaIbu" placeholder="Isikan Usia Ibu Anda" required data-rule-required="true" 
+                   data-msg-required="Usia Ibu harus diisi">
+        </div>
+        <div class="form-group">
+          <label for="inputPekerjaanIbu">Pekerjaan Ibu</label>
+          <input type="text" name="inputPekerjaanIbu" id="inputPekerjaanIbu" placeholder="Isikan Pekerjaan Ibu" required data-rule-required="true" 
+                   data-msg-required="Pekerjaan Ibu harus diisi">
+        </div>
+        <div class="form-group">
+          <label for="inputNoTelpIbu">No Telepon Ibu</label>
+          <input type="number" name="inputNoTelpIbu" id="inputNoTelpIbu" placeholder="Isikan No Telepon Ibu">
+        </div>
+        <div class="form-group">
+          <label for="inputStatusIbu">Status Ibu</label>
+          <select name="inputStatusIbu" id="inputStatusIbu" required data-rule-required="true" 
+                   data-msg-required="Status Ibu harus diisi">
+            <option selected="selected">Pilih Status Hidup</option>
+            <option value="Hidup">Hidup</option>
+            <option value="Meninggal">Meninggal</option>
+          </select>
+        </div>
+
+
+        <div id="ibu_tiri" style="display: none; padding-left: 80px">
+            <div class="form-group">
+              <label for="inputNamaIbuTiri">Nama Ibu Tiri</label>
+              <input type="text" name="inputNamaIbuTiri" id="inputNamaIbuTiri" placeholder="Isikan Nama Ibu Tiri">
+            </div>
+            <div class="form-group">
+              <label for="inputUsiaIbuTiri">Usia Ibu iri</label>
+              <input type="number" name="inputUsiaIbuTiri" id="inputUsiaIbuTiri" placeholder="Isikan Usia Ibu Tiri Anda">
+            </div>
+            <div class="form-group">
+              <label for="inputPekerjaanIbuTiri">Pekerjaan Ibu Tiri</label>
+              <input type="text" name="inputPekerjaanIbuTiri" id="inputPekerjaanIbuTiri" placeholder="Isikan Pekerjaan Ibu Tiri">
+            </div>
+            <div class="form-group">
+              <label for="inputNoTelpIbuTiri">No Telepon Ibu Tiri</label>
+              <input type="number" name="inputNoTelpIbuTiri" id="inputNoTelpIbuTiri" placeholder="Isikan No Telepon Ibu Tiri">
+            </div>
+            <div class="form-group">
+              <label for="inputStatusIbuTiri">Status Ibu Tiri</label>
+              <select name="inputStatusIbuTiri" id="inputStatusIbuTiri">
+                <option value="Hidup">Hidup</option>
+                <option value="Meninggal">Meninggal</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputJmlSaudara">Jumlah Saudara</label>
+          <input type="number" name="inputJmlSaudara" id="inputJmlSaudara" placeholder="Isikan Jumlah Saudara Anda">
+        </div>
+
     <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="4" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">Bantuan</div>
   </fieldset>
 
 
@@ -336,8 +418,8 @@
   	
 
   	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-	<script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
+  	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+  	<script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
     <script  src="assets/js/index.js"></script>
     <script>
     	$(function(){
@@ -362,6 +444,26 @@
     		});
     	});
     </script>
+      <script>
+      $(function() {
+          $('#inputStatusAyah').change(function(){
+            if($(this).val() == "Hidup" || $(this).val() == ""){
+              $('#ayah_tiri').hide();
+            }
+            else if($(this).val() == "Meninggal"){
+              $('#ayah_tiri').show();
+          }
+          });
+          $('#inputStatusIbu').change(function(){
+            if($(this).val() == "Hidup" || $(this).val() == ""){
+              $('#ibu_tiri').hide();
+            }
+            else if($(this).val() == "Meninggal"){
+              $('#ibu_tiri').show();
+          }
+          });
+      });
+  </script>
 </body>
 
 </html>

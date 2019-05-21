@@ -52,7 +52,7 @@ body {
   outline: none;
   display: block;
   width: 100%;
-  margin: 0 0 20px;
+  /*margin: 0 0 20px;*/
   padding: 10px 15px;
   border: 1px solid #d9d9d9;
   -webkit-border-radius: 3px;
