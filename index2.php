@@ -354,56 +354,184 @@
 
   <!-- RETENTION FIELD SET -->  
   <fieldset>
-    <h2 class="fs-title">Retention of your donors</h2>
-    <h3 class="fs-subtitle">How long can you keep your donors and their donations?</h3>
+    <h2 class="fs-title">Data Lamaran</h2>
         <!-- Begin Total Number of Donors Who Gave in Year 1 Field -->
-          <div class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field" id="webform-component-retention--amount-1"> 
-        
-          <label for=" edit-submitted-retention-amount-1 number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What was your total number of donors who gave in year 1? *</label>
+              <div>
+                <label for="inputPosisi1">Pilih Posisi 1</label>
+                <select name="inputPosisi1" id="inputPosisi1" required data-rule-required="true" 
+                   data-msg-required="Posisi 1 harus diisi">
+                  <option value="Manajer Keuangan(MK)">Manajer Keuangan(MK)</option>
+                  <option value="Manajer Pemasaran(MP)">Manajer Pemasaran(MP)</option>
+                  <option value="Koordinator Marketing(KM)">Koordinator Marketing(KM)</option>
+                  <option value="Marketing(MR)">Marketing(MR)</option>
+                  <option value="Supervisor Telemarketing(ST)">Supervisor Telemarketing(ST)</option>
+                  <option value="Telemarketing Buku(TB)">Telemarketing Buku(TB)</option>
+                  <option value="Telemarketing Cetak(TC)">Telemarketing Cetak(TC)</option>
+                  <option value="Telemarketing Agen(TA)">Telemarketing Agen(TA)</option>
+                </select>
+              </div>
 
-          <input id="edit-submitted-retention-amount-1" class="form-text hs-input" name="number_of_donors_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-          </div>
-        <!-- End Total Number of Donors Who Gave in Year 1 Field-->
+              <div>
+                <label for="inputPosisi2">Pilih Posisi 2</label>
+                <select name="inputPosisi2" id="inputPosisi2" required data-rule-required="true" 
+                   data-msg-required="Posisi 2 harus diisi">
+                  <option value="Manajer Keuangan(MK)">Manajer Keuangan(MK)</option>
+                  <option value="Manajer Pemasaran(MP)">Manajer Pemasaran(MP)</option>
+                  <option value="Koordinator Marketing(KM)">Koordinator Marketing(KM)</option>
+                  <option value="Marketing(MR)">Marketing(MR)</option>
+                  <option value="Supervisor Telemarketing(ST)">Supervisor Telemarketing(ST)</option>
+                  <option value="Telemarketing Buku(TB)">Telemarketing Buku(TB)</option>
+                  <option value="Telemarketing Cetak(TC)">Telemarketing Cetak(TC)</option>
+                  <option value="Telemarketing Agen(TA)">Telemarketing Agen(TA)</option>
+                </select>
+              </div>
+           
+              <div>
+                <label for="inputPenempatan">Penempatan</label>
+                <input type="text" name="inputPenempatan" id="inputPenempatan" placeholder="Isikan Penempatan Anda" required data-rule-required="true" 
+                   data-msg-required="Penempatan harus diisi">
+              </div>
+           
+              <div>
+                <label for="inputGaji">Gaji Yang Diinginkan</label>
+                <input type="number" name="inputGaji" id="inputGaji" placeholder="Isikan Gaji yang anda inginkan" required data-rule-required="true" 
+                   data-msg-required="Gaji harus diisi">
+              </div>
+               
+              <div>
+                <label for="inputKekurangan">Kekurangan Anda</label>
+                <textarea name="inputKekurangan" id="inputKekurangan" required data-rule-required="true" 
+                   data-msg-required="Kekurangan harus diisi"></textarea>
+              </div>
 
+              <div>
+                <label for="inputKelebihan">Kelebihan Anda</label>
+                <textarea name="inputKelebihan" id="inputKelebihan" required data-rule-required="true" 
+                   data-msg-required="Kelebihan harus diisi"></textarea>
+              </div>
 
-        <!-- Begin Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
-          <div class="form-item webform-component webform-component-textfield" id="webform-component-retention--amount-2 hs_number_of_year_1_donors_who_also_gave_in_year_2 field hs-form-field">
-        
-          <label for=" edit-submitted-retention-amount-2 number_of_year_1_donors_who_also_gave_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What was your total number of donors who gave in year 1 that also gave in year 2? *</label>
+              <div>
+                <label for="inputBisaKendaraan">Apakah Anda Bisa Mengendarai Kendaraan?</label>
+                <div class="radio">
+                <label><input type="radio" name="inputBisaKendaraan" id="inputBisaKendaraan" value="Ya" checked>Ya</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="inputBisaKendaraan" id="inputBisaKendaraan" value="Tidak">Tidak</label>
+              </div>
+              </div>
 
-          <input id="edit-submitted-retention-amount-2" class="form-text hs-input" name="number_of_year_1_donors_who_also_gave_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-          </div>
-        <!-- End Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
+              <div>
+                <label for="inputPunyaSim">Apakah Anda Punya SIM?</label>
+                <divclass="radio">
+                <label><input type="radio" name="inputPunyaSim" id="inputPunyaSim" value="Ada" checked>Ada</label>
+              </div>
+              <divclass="radio">
+                <label><input type="radio" name="inputPunyaSim" id="inputPunyaSim" value="Tidak Ada">Tidak Ada</label>
+              </div>
+              </div>
 
-        <!-- Begin Retention Rate Percent -->
-          <div class="form-item webform-component webform-component-textfield" id="webform-component-retention--percent-change field hs-form-field">
-        
-          <label for="edit-submitted-retention-percent-change">Retention Rate</label>
+              <div>
+                <label for="inputUploadSim">Upload SIM Anda (ekstensi .jpg/.pdf</label>
+                <input type="file" name="inputUploadSim" id="inputUploadSim">
+              </div>
 
-         <input id="edit-submitted-retention-percent-change" class="form-text hs-input" name="retention_rate_percent" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-          
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-          </div>
+              <div>
+                <label for="inputInfoLowongan">Informasi Lowongan Kerja ini darimana?</label>
+                <input type="text" name="inputInfoLowongan" id="inputInfoLowongan" placeholder="Isikan darimana anda memperoleh informasi Lowongan Pekerjaan">
+              </div>
 
-        <!-- End Retention Rate Percent -->
+              <div>
+                <label for="inputKenalan">Siapa yang anda kenal di Andi Offset?</label>
+                <input type="text" name="inputKenalan" id="inputKenalan" placeholder="Isikan Kenalan Anda di Andi Offset">
+              </div>
 
+              <div>
+                <label for="inputPekerjaanSampingan">Apakah Anda Memiliki Pekerjaan Sampingan</label>
+                <select name="inputPekerjaanSampingan" id="inputPekerjaanSampingan" required data-rule-required="true" 
+                   data-msg-required="Pekerjaan Sampingan harus diisi">
+                  <option value="Ya">Ya</option>
+                  <option value="Tidak">Tidak</option>
+                </select>
+              </div>
 
-        <!-- Begin Final Calc -->
-          <div class="form-item webform-component webform-component-textfield hs_fundraising_400_index field hs-form-field" id="webform-component-final-grade--grade">
+              <div>
+                <label for="inputNamaUsaha">Nama Usaha Anda</label>
+                <input type="text" name="inputNamaUsaha" id="inputNamaUsaha" placeholder="Isikan Nama Usaha Anda">
+              </div>
 
-          <label for=" fundraising_400_index-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Fundraising 400 Index Score</label>
+              <div>
+                <label for="inputTahunMulai">Tahun Mulai Usaha</label>
+                <input type="number" name="inputTahunMulai" id="inputTahunMulai" placeholder="Isikan Tahun Mulai Usaha">
+              </div>
 
-          <input id="edit-submitted-final-grade-grade" class="form-text hs-input" name="fundraising_400_index" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-          </div>
+              <div>
+                <label for="inputPosisiSampingan">Posisi Anda</label>
+                <input type="text" name="inputPosisiSampingan" id="inputPosisiSampingan" placeholder="Isikan Posisi Anda">
+              </div>
+
+              <div>
+                <label for="inputBidangSampingan">Bidang Anda</label>
+                <input type="text" name="inputBidangSampingan" id="inputBidangSampingan" placeholder="Isikan Bidang Anda">
+              </div>
+
+              <div>
+                <label for="inputTerlibatKejahatan">Apakah Anda Pernah Terlibat Kejahatan/Urusan Polisi/Narkoba?</label>
+                <select name="inputTerlibatKejahatan" id="inputTerlibatKejahatan">
+                  <option value="Ya">Ya</option>
+                  <option value="Tidak">Tidak</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="inputUploadSKCK">Upload SKCK</label>
+                <input type="file" name="inputUploadSKCK" id="inputUploadSKCK">
+              </div>
+
+              <div>
+                <label for="inputKebiasaanDisukai">Kebiasaan yang dilakukan atau disukai</label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Membaca">Membaca
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Menulis">Menulis
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Traveling">Traveling
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Makan">Makan
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Mendengar Musik">Mendengar Musik
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Nonton">Nonton
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Bicara">Bicara
+              </label>
+              </div>
+
+              <div>
+                <label for="inputMulaiKerja">Jika diterima kapan mulai kerja?</label>
+                <input type="text" name="inputMulaiKerja" id="inputMulaiKerja" placeholder="Isikan Waktu">
+              </div>
+
+              <div>
+                <label for="inputKeperluanMendesak">Keperluan mendesak yang bisa dihubungi</label>
+                <input type="text" name="inputKeperluanMendesak" id="inputKeperluanMendesak" placeholder="Isikan Kepeluan mendesak">
+              </div>
+              <div>
+                <label for="inputMoody">Apakah anda pekerja yang moody</label>
+                <select name="inputMoody" id="inputMoody">
+                  <option value="Ya">Ya</option>
+                  <option value="Tidak">Tidak</option>
+                </select>
+              </div>
+              <div>
+                <label for="inputPengalamanHidup">Pengalaman hidup yang paling bersalah (deskripsikan)</label>
+                <textarea name="inputPengalamanHidup" id="inputPengalamanHidup"></textarea>
+              </div>
         <!-- End Final Calc -->
     <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
     <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
