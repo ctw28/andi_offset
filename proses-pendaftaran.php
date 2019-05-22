@@ -127,6 +127,54 @@
 	mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Keluarga Tiri: - Error: ".mysqli_error($db), E_USER_ERROR);
 
 
+	// UNTUK INPUTAN DATA LAMARAN
+
+	$posisi1			= $_POST['inputPosisi1'];
+	$posisi2			= $_POST['inputPosisi2'];
+	$penempatan			= $_POST['inputPenempatan'];
+	$gaji 				= $_POST['inputGaji'];
+	$kekurangan			= $_POST['inputKekurangan'];
+	$kelebihan 			= $_POST['inputKelebihan'];
+
+	$bisaKendaraan		= $_POST['inputBisaKendaraan'];	//ya atau tidak
+	$punyaSim			= $_POST['inputPunyaSim'];	//ya atau tidak
+	// $uploadSim			= $_POST['inputUploadSim'];
+	$uploadSim			= "UPLOAD SIM";
+	
+	$infoLowongan		= $_POST['inputInfoLowongan'];
+	$kenalan			= $_POST['inputKenalan'];
+	
+	$pekerjaanSampingan	= $_POST['inputPekerjaanSampingan'];  //ya atau tidak
+	$namaUsaha			= $_POST['inputNamaUsaha'];
+	$tahunMulai			= $_POST['inputTahunMulai'];
+	$posisiSampingan	= $_POST['inputPosisiSampingan'];
+	$bidangSampingan	= $_POST['inputBidangSampingan'];
+	
+	$terlibatKejahatan	= $_POST['inputTerlibatKejahatan'];	//ya atau tidak
+	// $uploadSKCK			= $_POST['inputUploadSKCK'];		
+	$uploadSKCK			= "UPLOAD SKCK";		
+
+	$disukai = '';
+	$i = 1;
+	$panjangDataKebiasaan = count($_POST['inputKebiasaanDisukai']);
+	foreach($_POST['inputKebiasaanDisukai'] as $selected){
+		($i==$panjangDataKebiasaan) ? $disukai .=$selected : $disukai .=$selected.", ";
+		$i++;
+	}	
+
+	$kebiasaanDisukai	= $disukai;
+	$mulaiKerja			= $_POST['inputMulaiKerja'];
+	$keperluanMendesak	= $_POST['inputKeperluanMendesak'];
+	$moody				= $_POST['inputMoody'];
+	$pengalamanHidup	= $_POST['inputPengalamanHidup'];	
+
+	$query 	= "INSERT INTO data_lamaran
+			  	(id_pelamar, posisi1, posisi2, penempatan, gaji, kekurangan, kelebihan, bisa_kendaraan, punya_sim, upload_sim, info_lowongan, kenalan, pekerjaan_sampingan, nama_usaha, tahun_mulai, posisi_sampingan, bidang_sampingan, terlibat_kejahatan, upload_skck, kebiasaan_disukai, mulai_kerja, keperluan_mendesak, moody, pengalaman_hidup) 
+			  	VALUES 
+			  	($currentIdPelamar, '$posisi1', '$posisi2', '$penempatan', '$gaji', '$kekurangan', '$kelebihan', '$bisaKendaraan', '$punyaSim', '$uploadSim', '$infoLowongan', '$kenalan', '$pekerjaanSampingan', '$namaUsaha', '$tahunMulai', '$posisiSampingan', '$bidangSampingan', '$terlibatKejahatan', '$uploadSKCK', '$kebiasaanDisukai', '$mulaiKerja', '$keperluanMendesak', '$moody', '$pengalamanHidup')
+			  ";
+	mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Lamaran: - Error: ".mysqli_error($db), E_USER_ERROR);
+
 	if(mysqli_error($db)){
 		$data['response'] ="GAGAL INPUT FORM";
 	}
@@ -135,52 +183,6 @@
 	}
 
 	echo json_encode($data);
-
-	// // UNTUK INPUTAN DATA LAMARAN
-
-	// $posisi1			= $_POST['inputPosisi1'];
-	// $posisi2			= $_POST['inputPosisi2'];
-	// $penempatan			= $_POST['inputPenempatan'];
-	// $gaji 				= $_POST['inputGaji'];
-	// $kekurangan			= $_POST['inputKekurangan'];
-	// $kelebihan 			= $_POST['inputKelebihan'];
-
-	// $bisaKendaraan		= $_POST['inputBisaKendaraan'];	//ya atau tidak
-	// $punyaSim			= $_POST['inputPunyaSim'];	//ya atau tidak
-	// $uploadSim			= $_POST['inputUploadSim'];
-	
-	// $infoLowongan		= $_POST['inputInfoLowongan'];
-	// $kenalan			= $_POST['inputKenalan'];
-	
-	// $pekerjaanSampingan	= $_POST['inputPekerjaanSampingan'];  //ya atau tidak
-	// $namaUsaha			= $_POST['inputNamaUsaha'];
-	// $tahunMulai			= $_POST['inputTahunMulai'];
-	// $posisiSampingan	= $_POST['inputPosisiSampingan'];
-	// $bidangSampingan	= $_POST['inputBidangSampingan'];
-	
-	// $terlibatKejahatan	= $_POST['inputTerlibatKejahatan'];	//ya atau tidak
-	// $uploadSKCK			= $_POST['inputUploadSKCK'];		
-
-	// $disukai = '';
-	// $i = 1;
-	// $panjangDataKebiasaan = count($_POST['inputKebiasaanDisukai']);
-	// foreach($_POST['inputKebiasaanDisukai'] as $selected){
-	// 	($i==$panjangDataKebiasaan) ? $disukai .=$selected : $disukai .=$selected.", ";
-	// 	$i++;
-	// }	
-
-	// $kebiasaanDisukai	= $disukai;
-	// $mulaiKerja			= $_POST['inputMulaiKerja'];
-	// $keperluanMendesak	= $_POST['inputKeperluanMendesak'];
-	// $moody				= $_POST['inputMoody'];
-	// $pengalamanHidup	= $_POST['inputPengalamanHidup'];	
-
-	// $query 	= "INSERT INTO data_lamaran
-	// 		  	(id_pelamar, posisi1, posisi2, penempatan, gaji, kekurangan, kelebihan, bisa_kendaraan, punya_sim, upload_sim, info_lowongan, kenalan, pekerjaan_sampingan, nama_usaha, tahun_mulai, posisi_sampingan, bidang_sampingan, terlibat_kejahatan, upload_skck, kebiasaan_disukai, mulai_kerja, keperluan_mendesak, moody, pengalaman_hidup) 
-	// 		  	VALUES 
-	// 		  	($currentIdPelamar, '$posisi1', '$posisi2', '$penempatan', '$gaji', '$kekurangan', '$kelebihan', '$bisaKendaraan', '$punyaSim', '$uploadSim', '$infoLowongan', '$kenalan', '$pekerjaanSampingan', '$namaUsaha', '$tahunMulai', '$posisiSampingan', '$bidangSampingan', '$terlibatKejahatan', '$uploadSKCK', '$kebiasaanDisukai', '$mulaiKerja', '$keperluanMendesak', '$moody', '$pengalamanHidup')
-	// 		  ";
-	// mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Lamaran: - Error: ".mysqli_error($db), E_USER_ERROR);
 
 
 	// mysqli_query($db, $query) or die(mysqli_error($db));

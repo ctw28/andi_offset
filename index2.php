@@ -16,7 +16,6 @@
 
 <div class="info" style="width: 100%">
     <h1>Selamat Datang di Formulir Pendaftaran Kerja Andi Offset</h1>
-    <span><div class="spoilers">Mohon menyediakan file yang akan di upload.</div></span>
 </div>
 
 <form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" id="form-pendaftaran" method="POST" action="proses-pendaftaran.php">
@@ -58,8 +57,12 @@
 
         <div>
             <label for="inputJenisKelamin">Jenis Kelamin</label>
-	    	<label>Pria<input type="radio" name="inputJenisKelamin" id="inputJenisKelamin" value="L" required>
-	    	Wanita <input type="radio" name="inputJenisKelamin" id="inputJenisKelamin" value="P" required> </label>
+	    	        <span style="display:block; margin-left: 20px">
+                    <label>
+                    <input type="radio" name="inputJenisKelamin" id="inputJenisKelamin" value="L" required checked>Pria</label>
+                    <label>
+                    <input type="radio" name="inputJenisKelamin" id="inputJenisKelamin" value="P" required> Wanita</label>
+                </span>
             <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
         </div>
         <div>
@@ -98,30 +101,33 @@
 	    	</select>
             <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
 	  	</div>
-	  	<div>
-	    	<label for="inputNamaPasangan">Nama Pasangan</label>
-	    	<input type="text" name="inputNamaPasangan" id="inputNamaPasangan" placeholder="Isikan Nama Pasangan Anda">
-	  	</div>
-	  	<div>
-	    	<label for="inputPekerjaan">Pekerjaan Pasangan</label>
-	    	<input type="text" name="inputPekerjaan" id="inputPekerjaan" placeholder="Isikan Pekerjaan Pasangan Anda">
-	  	</div>
-	  	<div>
-	    	<label for="inputTempatLahirPasangan">Tempat lahir Pasangan</label>
-	    	<input type="text" name="inputTempatLahirPasangan" id="inputTempatLahirPasangan" placeholder="Isikan Tempat Lahir Pasangan Anda">
-	  	</div>
-	  	<div>
-	    	<label for="inputTanggalLahirPasangan">Tanggal Lahir Pasangan</label>
-	    	<input type="date" name="inputTanggalLahirPasangan" id="inputTanggalLahirPasangan" placeholder="Isikan Tanggal Lahir Pasangan Anda">
-	  	</div>
-	  	<div>
-	    	<label for="inputNoTelpPasangan">No. Telp Pasangan</label>
-	    	<input type="text" name="inputNoTelpPasangan" id="inputNoTelpPasangan" placeholder="Isikan No. Handphone Pasangan Anda">
-	  	</div>
-	  	<div>
-	    	<label for="inputJumlahAnak">Jumlah Anak</label>
-	    	<input type="number" name="inputJumlahAnak" id="inputJumlahAnak">
-	  	</div>
+      <div id="status" style="display: none; padding-left: 80px">
+          <div>
+            <label for="inputNamaPasangan">Nama Pasangan</label>
+            <input type="text" name="inputNamaPasangan" id="inputNamaPasangan" placeholder="Isikan Nama Pasangan Anda">
+          </div>
+          <div>
+            <label for="inputPekerjaan">Pekerjaan Pasangan</label>
+            <input type="text" name="inputPekerjaan" id="inputPekerjaan" placeholder="Isikan Pekerjaan Pasangan Anda">
+          </div>
+          <div>
+            <label for="inputTempatLahirPasangan">Tempat lahir Pasangan</label>
+            <input type="text" name="inputTempatLahirPasangan" id="inputTempatLahirPasangan" placeholder="Isikan Tempat Lahir Pasangan Anda">
+          </div>
+          <div>
+            <label for="inputTanggalLahirPasangan">Tanggal Lahir Pasangan</label>
+            <input type="date" name="inputTanggalLahirPasangan" id="inputTanggalLahirPasangan" placeholder="Isikan Tanggal Lahir Pasangan Anda">
+          </div>
+          <div>
+            <label for="inputNoTelpPasangan">No. Telp Pasangan</label>
+            <input type="text" name="inputNoTelpPasangan" id="inputNoTelpPasangan" placeholder="Isikan No. Handphone Pasangan Anda">
+          </div>
+          <div>
+            <label for="inputJumlahAnak">Jumlah Anak</label>
+            <input type="number" name="inputJumlahAnak" id="inputJumlahAnak">
+          </div>
+      </div>
+
 
     <!-- End Total Number of Constituents in Your Database Field -->
     <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
@@ -137,45 +143,48 @@
       <div>
     	<label for="inputPengalaman">Apakah Anda Memiliki Pengalam Kerja ?</label>
     	<select name="inputPengalaman" id="inputPengalaman" required data-rule-required="true" 
-                   data-msg-required="Pengalaman Kerja Harus di isi>
+                   data-msg-required="Pengalaman Kerja Harus di isi">
     		<option value="Ya">Ada</option>
     		<option value="Tidak Ada">Tidak Ada</option>
     	</select>
   	</div>
 
-  	<div>
-    	<label for="inputPerusahaan">Nama Perusahan</label>
-    	<input type="text" name="inputPerusahaan" id="inputPerusahaan" placeholder="Isikan Nama Perusahaan">
-  	</div>
-  	<div>
-    	<label for="inputBidang">Bidang</label>
-    	<input type="text" name="inputBidang" id="inputBidang" placeholder="Isikan Bidang Anda">
-  	</div>
-  	<div>
-    	<label for="inputJabatanTerakhir">Jabatan Terakhir</label>
-    	<input type="text" name="inputJabatanTerakhir" id="inputJabatanTerakhir" placeholder="Isikan Jabatan Terakhir Anda">
-  	</div>
-  	<div>
-    	<label for="inputLamaKerja">Lama Kerja (dalam Bulan)</label>
-    	<input type="number" name="inputLamaKerja" id="inputLamaKerja" placeholder="Isikan Lama Kerja Anda">
-  	</div>
-  	<div>
-    	<label for="inputPeriode">Periode Kerja</label>
-    	<input type="text" name="inputPeriode" id="inputPeriode" placeholder="Isikan Periode Kerja Anda">
-  	</div>
+    <div id="pengalaman" style="display: none; padding-left: 80px">
+        <div>
+          <label for="inputPerusahaan">Nama Perusahan</label>
+          <input type="text" name="inputPerusahaan" id="inputPerusahaan" placeholder="Isikan Nama Perusahaan">
+        </div>
+        <div>
+          <label for="inputBidang">Bidang</label>
+          <input type="text" name="inputBidang" id="inputBidang" placeholder="Isikan Bidang Anda">
+        </div>
+        <div>
+          <label for="inputJabatanTerakhir">Jabatan Terakhir</label>
+          <input type="text" name="inputJabatanTerakhir" id="inputJabatanTerakhir" placeholder="Isikan Jabatan Terakhir Anda">
+        </div>
+        <div>
+          <label for="inputLamaKerja">Lama Kerja (dalam Bulan)</label>
+          <input type="number" name="inputLamaKerja" id="inputLamaKerja" placeholder="Isikan Lama Kerja Anda">
+        </div>
+        <div>
+          <label for="inputPeriode">Periode Kerja</label>
+          <input type="text" name="inputPeriode" id="inputPeriode" placeholder="Isikan Periode Kerja Anda">
+        </div>
 
-  	<div>
-    	<label for="inputGajiTerakhir">Gaji Terakhir Anda</label>
-    	<input type="text" name="inputGajiTerakhir" id="inputGajiTerakhir" placeholder="Isikan Gaji Terakhir Anda">
-  	</div>
-  	<div>
-    	<label for="inputAlasanKeluar">Alasan Keluar / Berhenti</label>
-    	<textarea name="inputAlasanKeluar" id="inputAlasanKeluar"></textarea>
-  	</div>
-  	<div>
-    	<label for="inputSuratKeteranganKerja">Upload Surat Keterangan Kerja (ekstensi .jpg/.pdf)</label>
-    	<input type="text" name="inputSuratKeteranganKerja" id="inputSuratKeteranganKerja">
-  	</div>
+        <div>
+          <label for="inputGajiTerakhir">Gaji Terakhir Anda</label>
+          <input type="text" name="inputGajiTerakhir" id="inputGajiTerakhir" placeholder="Isikan Gaji Terakhir Anda">
+        </div>
+        <div>
+          <label for="inputAlasanKeluar">Alasan Keluar / Berhenti</label>
+          <textarea name="inputAlasanKeluar" id="inputAlasanKeluar"></textarea>
+        </div>
+        <div>
+          <label for="inputSuratKeteranganKerja">Upload Surat Keterangan Kerja (ekstensi .jpg/.pdf)</label>
+          <input type="text" name="inputSuratKeteranganKerja" id="inputSuratKeteranganKerja">
+        </div>
+    </div>
+
 
     <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
@@ -412,25 +421,27 @@
 
               <div>
                 <label for="inputBisaKendaraan">Apakah Anda Bisa Mengendarai Kendaraan?</label>
-                <div class="radio">
-                <label><input type="radio" name="inputBisaKendaraan" id="inputBisaKendaraan" value="Ya" checked>Ya</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="inputBisaKendaraan" id="inputBisaKendaraan" value="Tidak">Tidak</label>
-              </div>
+                <select name="inputBisaKendaraan" id="inputBisaKendaraan" required data-rule-required="true" 
+                   data-msg-required="harus diisi">
+                  <option value="">Pilih Jawaban</option>
+                  <option value="Ya">Ya</option>
+                  <option value="Tidak">Tidak</option>
+                </select>
               </div>
 
-              <div>
+
+
+              <div id="sim" style="display: none; padding-left: 80px">
                 <label for="inputPunyaSim">Apakah Anda Punya SIM?</label>
-                <divclass="radio">
-                <label><input type="radio" name="inputPunyaSim" id="inputPunyaSim" value="Ada" checked>Ada</label>
-              </div>
-              <divclass="radio">
-                <label><input type="radio" name="inputPunyaSim" id="inputPunyaSim" value="Tidak Ada">Tidak Ada</label>
-              </div>
+                <select name="inputPunyaSim" id="inputPunyaSim" required data-rule-required="true" 
+                   data-msg-required="harus diisi">
+                  <option value="">Pilih Jawaban</option>
+                  <option value="Ya">Ya</option>
+                  <option value="Tidak">Tidak</option>
+                </select>
               </div>
 
-              <div>
+              <div id="sim_upload" style="display: none; padding-left: 80px">
                 <label for="inputUploadSim">Upload SIM Anda (ekstensi .jpg/.pdf</label>
                 <input type="file" name="inputUploadSim" id="inputUploadSim">
               </div>
@@ -449,30 +460,34 @@
                 <label for="inputPekerjaanSampingan">Apakah Anda Memiliki Pekerjaan Sampingan</label>
                 <select name="inputPekerjaanSampingan" id="inputPekerjaanSampingan" required data-rule-required="true" 
                    data-msg-required="Pekerjaan Sampingan harus diisi">
+                  <option value="">Pilih Jawaban</option>
                   <option value="Ya">Ya</option>
                   <option value="Tidak">Tidak</option>
                 </select>
               </div>
 
-              <div>
-                <label for="inputNamaUsaha">Nama Usaha Anda</label>
-                <input type="text" name="inputNamaUsaha" id="inputNamaUsaha" placeholder="Isikan Nama Usaha Anda">
+              <div id="sampingan" style="display: none; padding-left: 80px">
+                  <div>
+                    <label for="inputNamaUsaha">Nama Usaha Anda</label>
+                    <input type="text" name="inputNamaUsaha" id="inputNamaUsaha" placeholder="Isikan Nama Usaha Anda">
+                  </div>
+
+                  <div>
+                    <label for="inputTahunMulai">Tahun Mulai Usaha</label>
+                    <input type="number" name="inputTahunMulai" id="inputTahunMulai" placeholder="Isikan Tahun Mulai Usaha">
+                  </div>
+
+                  <div>
+                    <label for="inputPosisiSampingan">Posisi Anda</label>
+                    <input type="text" name="inputPosisiSampingan" id="inputPosisiSampingan" placeholder="Isikan Posisi Anda">
+                  </div>
+
+                  <div>
+                    <label for="inputBidangSampingan">Bidang Anda</label>
+                    <input type="text" name="inputBidangSampingan" id="inputBidangSampingan" placeholder="Isikan Bidang Anda">
+                  </div>
               </div>
 
-              <div>
-                <label for="inputTahunMulai">Tahun Mulai Usaha</label>
-                <input type="number" name="inputTahunMulai" id="inputTahunMulai" placeholder="Isikan Tahun Mulai Usaha">
-              </div>
-
-              <div>
-                <label for="inputPosisiSampingan">Posisi Anda</label>
-                <input type="text" name="inputPosisiSampingan" id="inputPosisiSampingan" placeholder="Isikan Posisi Anda">
-              </div>
-
-              <div>
-                <label for="inputBidangSampingan">Bidang Anda</label>
-                <input type="text" name="inputBidangSampingan" id="inputBidangSampingan" placeholder="Isikan Bidang Anda">
-              </div>
 
               <div>
                 <label for="inputTerlibatKejahatan">Apakah Anda Pernah Terlibat Kejahatan/Urusan Polisi/Narkoba?</label>
@@ -487,29 +502,33 @@
                 <input type="file" name="inputUploadSKCK" id="inputUploadSKCK">
               </div>
 
-              <div>
-                <label for="inputKebiasaanDisukai">Kebiasaan yang dilakukan atau disukai</label>
-              <label class="checkbox-inline">
-                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Membaca">Membaca
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Menulis">Menulis
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Traveling">Traveling
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Makan">Makan
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Mendengar Musik">Mendengar Musik
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Nonton">Nonton
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" name="inputKebiasaanDisukai[]" id="inputKebiasaanDisukai" value="Bicara">Bicara
-              </label>
+              <div class="checkbox">
+                <label for="inputKebiasaanDisukai">Kebiasaan yang dilakukan atau disukai</label><br>
+                <div class="col-1">
+                  <label>
+                    <input type="checkbox" name="inputKebiasaanDisukai[]" value="Membaca">Membaca                    
+                  </label>
+                  <label>
+                    <input type="checkbox" name="inputKebiasaanDisukai[]" value="Menulis">Menulis
+                  </label>
+                  <label>
+                    <input type="checkbox" name="inputKebiasaanDisukai[]" value="Traveling">Traveling
+                  </label>
+                  <label>
+                    <input type="checkbox" name="inputKebiasaanDisukai[]" value="Makan">Makan                  
+                  </label>
+                  <label>
+                    <input type="checkbox" name="inputKebiasaanDisukai[]" value="Nonton">Nonton
+                  </label>
+                  <label>
+                    <input type="checkbox" name="inputKebiasaanDisukai[]" value="Bicara">Bicara                  
+                  </label>
+                </div>
+                <div style="margin-left: 20px;">
+                  <label>
+                    <input type="checkbox" name="inputKebiasaanDisukai[]" value="Mendengar Musik">Mendengar Musik
+                  </label>
+                </div>
               </div>
 
               <div>
@@ -574,6 +593,17 @@
     </script>
       <script>
       $(function() {
+
+        
+          $('#inputStatus').change(function(){
+            if($(this).val() == "Belum Menikah" || $(this).val() == ""){
+              $('#status').hide();
+            }
+            else if($(this).val() == "Menikah"){
+              $('#status').show();
+          }
+          });
+
           $('#inputStatusAyah').change(function(){
             if($(this).val() == "Hidup" || $(this).val() == ""){
               $('#ayah_tiri').hide();
@@ -582,6 +612,7 @@
               $('#ayah_tiri').show();
           }
           });
+          
           $('#inputStatusIbu').change(function(){
             if($(this).val() == "Hidup" || $(this).val() == ""){
               $('#ibu_tiri').hide();
@@ -590,6 +621,43 @@
               $('#ibu_tiri').show();
           }
           });
+          
+          $('#inputPengalaman').change(function(){
+            if($(this).val() == "Tidak Ada" || $(this).val() == ""){
+              $('#pengalaman').hide();
+            }
+            else if($(this).val() == "Ya"){
+              $('#pengalaman').show();
+          }
+
+          });
+          $('#inputPekerjaanSampingan').change(function(){
+            if($(this).val() == "Tidak" || $(this).val() == ""){
+              $('#sampingan').hide();
+            }
+            else if($(this).val() == "Ya"){
+              $('#sampingan').show();
+          }
+          });
+          $('#inputPunyaSim').change(function(){
+            if($(this).val() == "Tidak" || $(this).val() == ""){
+              $('#sim_upload').hide();
+            }
+            else if($(this).val() == "Ya"){
+              $('#sim_upload').show();
+          }
+          });
+          $('#inputBisaKendaraan').change(function(){
+            if($(this).val() == "Tidak" || $(this).val() == ""){
+              $('#sim').hide();
+            }
+            else if($(this).val() == "Ya"){
+              $('#sim').show();
+          }
+          });
+
+
+
       });
   </script>
 </body>

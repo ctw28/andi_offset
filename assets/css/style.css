@@ -43,12 +43,12 @@ body {
   font-size: 15px;
   font-weight: 200;
   padding-bottom: 7px;
-  padding-top: 12px;
+  padding-top: 10px;
   display: inline-block;
 }
 
 
-.steps input, .steps textarea {
+.steps input, .steps textarea, .steps select  {
   outline: none;
   display: block;
   width: 100%;
@@ -73,9 +73,14 @@ body {
   -o-transition: all 0.3s linear 0s;
   transition: all 0.3s linear 0s;
 }
-
-.steps input[type=radio]{
+.col-1{
+  display: inline-block;
+  width: 100%;
+  margin-left: 20px;
+}
+.steps input[type=radio], .steps input[type=checkbox]{
     display: inline-block;
+    width: auto;
 }
 
 .steps input:focus, .steps textarea:focus{
