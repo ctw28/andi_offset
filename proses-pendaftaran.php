@@ -67,8 +67,10 @@
 	$tahunMasuk  = $_POST['inputTahunMasuk'];
 	$tahunLulus  = $_POST['inputTahunLulus'];
 	// $ijazah 	 = $_POST['inputIjazah'];
+	$ijazah 	 = $_FILES["inputIjazah"]["name"];
+	move_uploaded_file($_FILES['inputIjazah']['tmp_name'], 'assets/' . $_FILES['inputIjazah']['name']);
 	// $transkrip	 = $_POST['inputTranskrip'];
-	$ijazah 	 = 'ijazah';
+	// $ijazah 	 = 'ijazah';
 	$transkrip	 = 'transkrip';
 	
 

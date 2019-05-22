@@ -570,7 +570,10 @@
     <script  src="assets/js/index.js"></script>
     <script>
     	$(function(){
-    		var form = $("#form-pendaftaran");
+        var file_data = $('#inputIjazah').prop('files')[0];
+        var form = new FormData(document.getElementById("form-pendaftaran"));
+    		// var form = $("#form-pendaftaran");
+        form.append("inputIjazah", file_data);
     		form.submit(function(e){
     			$(this).attr("disabled","disabled");
     			e.preventDefault();
@@ -660,6 +663,7 @@
 
       });
   </script>
+
 </body>
 
 </html>
