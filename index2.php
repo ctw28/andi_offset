@@ -27,7 +27,6 @@
         <li>Data Lamaran</li>
     </ul>
 
-
   <!-- DATA PRIBADI FIELDSET --> 
     <fieldset style="margin-bottom: 50px !important;">
         <h2 class="fs-title">Data Pribadi</h2>
@@ -73,22 +72,21 @@
 
         </div>
 	  	<div>
-	    	<label for="inputAlamatDomisili">Alamat Domisili</label>
-	    	<textarea name="inputAlamatDomisili" id="inputAlamatDomisili" required data-rule-required="true" 
-                   data-msg-required="Alamat Domisili Harus Di Isi"></textarea>
-            <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
+  	    	<label for="inputAlamatDomisili">Alamat Domisili</label>
+  	    	<textarea name="inputAlamatDomisili" id="inputAlamatDomisili" required data-rule-required="true" data-msg-required="Alamat Domisili Harus Di Isi"></textarea>
+          <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
 	  	</div>
 	  	<div>
-	    	<label for="inputNoTelp">No. Handphone</label>
-	    	<input type="number" name="inputNoTelp" id="inputNoTelp" required data-rule-required="true" 
-                   data-msg-required="Nomor Telepon Harus di isi">
-            <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
+  	    	<label for="inputNoTelp">No. Handphone</label>
+  	    	<input type="number" name="inputNoTelp" id="inputNoTelp" required data-rule-required="true" 
+                     data-msg-required="Nomor Telepon Harus di isi">
+          <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
 	  	</div>
 	  	<div>
-	    	<label for="inputEmail">Email</label>
-	    	<input type="email" name="inputEmail" id="inputEmail" required data-rule-required="true" 
-                   data-msg-required="Email Tidak Boleh Kosong dan harus valid">
-            <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
+  	    	<label for="inputEmail">Email</label>
+  	    	<input type="email" name="inputEmail" id="inputEmail" required data-rule-required="true" 
+                     data-msg-required="Email Tidak Boleh Kosong dan harus valid">
+          <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
 	  	</div>
 
 	  	<div>
@@ -128,16 +126,13 @@
           </div>
       </div>
 
-
-    <!-- End Total Number of Constituents in Your Database Field -->
     <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
     <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">Bantuan?</div>
     
   </fieldset>
 
 
-
-  <!-- ACQUISITION FIELD SET -->  
+  <!-- PENGALAMAN FIELD SET -->  
   <fieldset style="display: none;">
     <h2 class="fs-title">PENGALAMAN KERJA</h2>
       <div>
@@ -569,30 +564,28 @@
   	<script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
     <script  src="assets/js/index.js"></script>
     <script>
-    	$(function(){
-        var file_data = $('#inputIjazah').prop('files')[0];
-        var form = new FormData(document.getElementById("form-pendaftaran"));
-    		// var form = $("#form-pendaftaran");
-        form.append("inputIjazah", file_data);
-    		form.submit(function(e){
-    			$(this).attr("disabled","disabled");
-    			e.preventDefault();
-    			$.ajax({
-    				type 		: form.attr('method'),
-    				url			: form.attr('action'),
-    				data 		: form.serialize(),
-    				dataType	: "json",
-    				success: function(data){
-    					$('#info-form').text(data.response);
-    					console.log(data);
-    				},
-    				error: function(data){
-    					$('#info-form').text(data.response);
-    					console.log(data);
-    				}
-    			});
-    		});
-    	});
+    	
+      $('button[type=submit]').on('click', function(){
+            var file_data = $('#inputIjazah').prop('files')[0];
+            var form = new FormData(document.getElementById("form-pendaftaran"));
+            // var form = $("#form-pendaftaran");
+            form.append("inputIjazah", file_data);
+            $.ajax({
+                url: "proses-pendaftaran.php",
+                type: "POST",
+                data: $('#form-pendaftaran').serialize(),
+                dataType: 'json',
+              success: function(data){
+                $('#info-form').text(data.response);
+                console.log(data);
+              },
+              error: function(data){
+                $('#info-form').text(data.response);
+                console.log(data);
+              }
+            });
+        });
+
     </script>
       <script>
       $(function() {
