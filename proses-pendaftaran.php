@@ -106,8 +106,9 @@
 
 
 
-	$currentIdKeluarga	= mysqli_insert_id($db);
 	// UNTUK INPUTAN DATA KELUARGA TIRI
+	$currentIdKeluarga	= mysqli_insert_id($db);
+
 	$namaAyahTiri 				= $_POST['inputNamaAyahTiri'];
 	$usiaAyahTiri 				= $_POST['inputUsiaAyahTiri'];
 	$pekerjaanAyahTiri 			= $_POST['inputPekerjaanAyahTiri'];
@@ -145,6 +146,7 @@
 	
 	$infoLowongan		= $_POST['inputInfoLowongan'];
 	$kenalan			= $_POST['inputKenalan'];
+
 	
 	$pekerjaanSampingan	= $_POST['inputPekerjaanSampingan'];  //ya atau tidak
 	$namaUsaha			= $_POST['inputNamaUsaha'];
@@ -177,6 +179,27 @@
 			  ";
 	mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Lamaran: - Error: ".mysqli_error($db), E_USER_ERROR);
 
+	//UNTUK INPUTAN DATA BUTA WARNA
+
+	$butWarna			= $_POST['inputButaWarna'];  //ya atau tidak
+	$idGambar			= $_POST['InputIdGambar'];
+	$jawabanButaWarna	= $_POST['inputJawabanButaWarna'];
+	$hasilButaWarna		= '';
+
+	//CEK JAWABAN TEST BUTA WARNA
+
+	$query = "SELECT nilai from data_gambar_buta_warna WHERE id_gambar = $idGambar";
+	$hasil = mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Buta Warna: - Error: ".mysqli_error($db), E_USER_ERROR);
+	$row = mysqli_fetch_assoc($hasil);
+
+	//JIKA JAWABAN DAN NILAI COCOK, MAKA HASIL BENAR, JIKA BERBEDA MAKA HASIL SALAH
+	($row['nilai'] == $jawabanButaWarna) ? $hasilButaWarna	= 'Benar' : $hasilButaWarna	= 'Salah';
+	
+	$query 	= "INSERT INTO data_buta_warna (id_pelamar, id_gambar, jawaban, hasil) 
+			   VALUES ($currentIdPelamar, '$idGambar', '$jawabanButaWarna', '$hasilButaWarna')";
+	mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Lamaran: - Error: ".mysqli_error($db), E_USER_ERROR);
+
+
 	if(mysqli_error($db)){
 		$data['response'] ="GAGAL INPUT FORM";
 	}
@@ -185,18 +208,5 @@
 	}
 
 	echo json_encode($data);
-
-
-	// mysqli_query($db, $query) or die(mysqli_error($db));
-	// if ($db->error) {
- //    try {    
- //        throw new Exception("MySQL error $db->error <br> Query:<br> $query", $db->errno);    
- //    } catch(Exception $e) {
- //        echo "Error No: ".$e->getCode(). " - ". $e->getMessage() . "<br >";
- //        echo nl2br($e->getTraceAsString());
- //    }
-// }
-	 
-
 	
 ?>

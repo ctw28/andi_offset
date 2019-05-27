@@ -452,6 +452,28 @@
               </div>
 
               <div>
+                <label for="inputButaWarna">Apakah Anda Buta Warna</label>
+                <select name="inputButaWarna" id="inputButaWarna" required data-rule-required="true" 
+                   data-msg-required="Buta Warna harus diisi">
+                  <option value="">Pilih Jawaban</option>
+                  <option value="Ya">Ya</option>
+                  <option value="Tidak">Tidak</option>
+                </select>
+              </div>
+              <div id="buta_warna" style="display: none; padding-left: 80px">
+                  <div>
+                    <img src="" id="tampil_gambar_test_buta_warna" width="100px" height="100px">
+                    <input type="hidden" id="InputIdGambar" name="InputIdGambar" value="">
+                  </div>
+                  <div>
+                    <label for="inputJawabanButaWarna">Angka Berapa pada Gambar?</label>
+                    <input type="number" name="inputJawabanButaWarna" id="inputJawabanButaWarna" placeholder="Isikan Jawaban Anda Anda">
+                  </div>
+              </div>
+
+
+
+              <div>
                 <label for="inputPekerjaanSampingan">Apakah Anda Memiliki Pekerjaan Sampingan</label>
                 <select name="inputPekerjaanSampingan" id="inputPekerjaanSampingan" required data-rule-required="true" 
                    data-msg-required="Pekerjaan Sampingan harus diisi">
@@ -587,10 +609,32 @@
         });
 
     </script>
+
+
+
+  
       <script>
       $(function() {
 
         
+          $('#inputButaWarna').change(function(){
+              if($(this).val() == "Ya" || $(this).val() == ""){
+                  $('#buta_warna').hide();
+              }
+              else if($(this).val() == "Tidak"){
+                $.ajax({
+                    url : 'buta-warna-load-gambar.php',
+                    type: "GET",
+                    dataType: 'json',
+                    success : function(data){
+                        $('#tampil_gambar_test_buta_warna').attr('src','assets/images/buta-warna/'+data.src);
+                        $('#InputIdGambar').attr('value',data.id_gambar);
+                        $('#buta_warna').show();
+                    }
+                });
+              }
+          });
+
           $('#inputStatus').change(function(){
             if($(this).val() == "Belum Menikah" || $(this).val() == ""){
               $('#status').hide();
