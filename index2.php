@@ -1,5 +1,9 @@
 <?php 
+  session_start();
+    // unset($_SESSION['error']);
 	include('config/config.php');
+  include('function/upload-file.php');
+  include('function/set-value.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -18,7 +22,7 @@
     <h1>Selamat Datang di Formulir Pendaftaran Kerja Andi Offset</h1>
 </div>
 
-<form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" id="form-pendaftaran" method="POST" action="proses-pendaftaran.php">
+<form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" id="form-pendaftaran">
     <ul id="progressbar">
         <li class="active">Data Pribadi</li>
         <li>Pengalaman Kerja</li>
@@ -34,21 +38,21 @@
 
         <div>
             <label for="inputNama">Nama Lengkap</label>
-            <input type="text" name="inputNama" id="inputNama" required data-rule-required="true" 
-                   data-msg-required="Mohon Isi Nama Lengkap Anda">
+            <input type="text" name="inputNama" id="inputNama"  
+                   data-msg-required="Mohon Isi Nama Lengkap Anda" value="<?php echo setValue('inputNama') ?>">
             <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
         </div>
 
         <div>
             <label for="inputTempatLahir">Tempat lahir</label>
-            <input type="text" name="inputTempatLahir" id="inputTempatLahir" required data-rule-required="true" 
+            <input type="text" name="inputTempatLahir" id="inputTempatLahir"  
                    data-msg-required="Mohon Isi Tempat Lahir Anda">        
             <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
         </div>
 
         <div>
             <label for="inputTanggalLahir">Tanggal Lahir</label>
-            <input type="date" name="inputTanggalLahir" id="inputTanggalLahir" required data-rule-required="true" 
+            <input type="date" name="inputTanggalLahir" id="inputTanggalLahir"  
                    data-msg-required="Mohon Isi Tanggal Lahir Anda">
             <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
         </div>
@@ -58,7 +62,7 @@
             <label for="inputJenisKelamin">Jenis Kelamin</label>
 	    	        <span style="display:block; margin-left: 20px">
                     <label>
-                    <input type="radio" name="inputJenisKelamin" id="inputJenisKelamin" value="L" required checked>Pria</label>
+                    <input type="radio" name="inputJenisKelamin" id="inputJenisKelamin" value="L" checked>Pria</label>
                     <label>
                     <input type="radio" name="inputJenisKelamin" id="inputJenisKelamin" value="P" required> Wanita</label>
                 </span>
@@ -66,32 +70,32 @@
         </div>
         <div>
 	    	<label for="inputAlamatKTP">Alamat (Sesuai KTP)</label>
-	    	<textarea name="inputAlamatKTP" id="inputAlamatKTP" required data-rule-required="true" 
+	    	<textarea name="inputAlamatKTP" id="inputAlamatKTP"  
                    data-msg-required="Mohon Isi Alamat KTP Anda"></textarea>
             <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
 
         </div>
 	  	<div>
   	    	<label for="inputAlamatDomisili">Alamat Domisili</label>
-  	    	<textarea name="inputAlamatDomisili" id="inputAlamatDomisili" required data-rule-required="true" data-msg-required="Alamat Domisili Harus Di Isi"></textarea>
+  	    	<textarea name="inputAlamatDomisili" id="inputAlamatDomisili"  data-msg-required="Alamat Domisili Harus Di Isi"></textarea>
           <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
 	  	</div>
 	  	<div>
   	    	<label for="inputNoTelp">No. Handphone</label>
-  	    	<input type="number" name="inputNoTelp" id="inputNoTelp" required data-rule-required="true" 
-                     data-msg-required="Nomor Telepon Harus di isi">
+  	    	<input type="text" name="inputNoTelp" id="inputNoTelp"  
+                     data-msg-required="Nomor Telepon Harus di isi" onkeypress="return isNumber(event)">
           <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
 	  	</div>
 	  	<div>
   	    	<label for="inputEmail">Email</label>
-  	    	<input type="email" name="inputEmail" id="inputEmail" required data-rule-required="true" 
+  	    	<input type="email" name="inputEmail" id="inputEmail"  
                      data-msg-required="Email Tidak Boleh Kosong dan harus valid">
           <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
 	  	</div>
 
 	  	<div>
 	    	<label for="inputStatus">Status</label>
-	    	<select name="inputStatus" id="inputStatus"  required data-rule-required="true" 
+	    	<select name="inputStatus" id="inputStatus"   
                    data-msg-required="Mohon Memilih Status Pernikahan">
 	    		<option value="">Pilih Status</option>
 	    		<option value="Menikah">Menikah</option>
@@ -137,7 +141,7 @@
     <h2 class="fs-title">PENGALAMAN KERJA</h2>
       <div>
     	<label for="inputPengalaman">Apakah Anda Memiliki Pengalam Kerja ?</label>
-    	<select name="inputPengalaman" id="inputPengalaman" required data-rule-required="true" 
+    	<select name="inputPengalaman" id="inputPengalaman"  
                    data-msg-required="Pengalaman Kerja Harus di isi">
     		<option value="Ya">Ada</option>
     		<option value="Tidak Ada">Tidak Ada</option>
@@ -176,7 +180,7 @@
         </div>
         <div>
           <label for="inputSuratKeteranganKerja">Upload Surat Keterangan Kerja (ekstensi .jpg/.pdf)</label>
-          <input type="text" name="inputSuratKeteranganKerja" id="inputSuratKeteranganKerja">
+          <input type="file" name="inputSuratKeteranganKerja" id="inputSuratKeteranganKerja">
         </div>
     </div>
 
@@ -194,22 +198,22 @@
       <!-- Begin Average Gift Size in Year 1 Field -->
           	<div>
 		    	<label for="inputNamaSekolah">Nama Sekolah / Universitas</label>
-		    	<input type="text" name="inputNamaSekolah" id="inputNamaSekolah" required data-rule-required="true" 
+		    	<input type="text" name="inputNamaSekolah" id="inputNamaSekolah"  
                    data-msg-required="Nama Sekolah / Universitas Harus diisi">
 		  	</div>
 		  	<div>
 		    	<label for="inputJurusan">Jurusan</label>
-		    	<input type="text" name="inputJurusan" id="inputJurusan" required data-rule-required="true" 
+		    	<input type="text" name="inputJurusan" id="inputJurusan"  
                    data-msg-required="Jurusan Harus Di Isi">
 		  	</div>
 		  	<div>
 		    	<label for="inputTahunMasuk">Tahun Masuk</label>
-		    	<input type="number" name="inputTahunMasuk" id="inputTahunMasuk" required data-rule-required="true" 
+		    	<input type="number" name="inputTahunMasuk" id="inputTahunMasuk"  
                    data-msg-required="Tahun Masuk harus diisi">
 		  	</div>
 		  	<div>
 		    	<label for="inputTahunLulus">Tahun Lulus</label>
-		    	<input type="number" name="inputTahunLulus" id="inputTahunLulus" required data-rule-required="true" 
+		    	<input type="number" name="inputTahunLulus" id="inputTahunLulus"  
                    data-msg-required="Tahun Lulus Harus Diisi">
 		  	</div>
 		  	<div>
@@ -234,26 +238,26 @@
     <h2 class="fs-title">Data Keluarga</h2>
         <div class="form-group">
           <label for="inputNamaAyah">Nama Ayah</label>
-          <input type="text" name="inputNamaAyah" id="inputNamaAyah" placeholder="Isikan Nama Ayah" required data-rule-required="true" 
+          <input type="text" name="inputNamaAyah" id="inputNamaAyah" placeholder="Isikan Nama Ayah"  
                    data-msg-required="Nama Ayah harus diisi">
         </div>
         <div class="form-group">
           <label for="inputUsiaAyah">Usia Ayah</label>
-          <input type="number" name="inputUsiaAyah" id="inputUsiaAyah" placeholder="Isikan Usia Ayah Anda" required data-rule-required="true" 
+          <input type="number" name="inputUsiaAyah" id="inputUsiaAyah" placeholder="Isikan Usia Ayah Anda"  
                    data-msg-required="Usia Ayah harus diisi">
         </div>
         <div class="form-group">
           <label for="inputPekerjaanAyah">Pekerjaan Ayah</label>
-          <input type="text" name="inputPekerjaanAyah" id="inputPekerjaanAyah" placeholder="Isikan Pekerjaan Ayah" required data-rule-required="true" 
+          <input type="text" name="inputPekerjaanAyah" id="inputPekerjaanAyah" placeholder="Isikan Pekerjaan Ayah"  
                    data-msg-required="Pekerjaan Ayah harus diisi">
         </div>
         <div class="form-group">
           <label for="inputNoTelpAyah">No Telepon Ayah</label>
-          <input type="number" name="inputNoTelpAyah" id="inputNoTelpAyah" placeholder="Isikan No Telepon Ayah">
+          <input type="text" name="inputNoTelpAyah" id="inputNoTelpAyah" placeholder="Isikan No Telepon Ayah" >
         </div>
         <div class="form-group">
           <label for="inputStatusAyah">Status Ayah</label>
-          <select name="inputStatusAyah" id="inputStatusAyah" required data-rule-required="true" 
+          <select name="inputStatusAyah" id="inputStatusAyah"  
                    data-msg-required="Status Ayah harus diisi">
             <option value="" selected="selected">Pilih Status Hidup</option>
             <option value="Hidup">Hidup</option>
@@ -290,17 +294,17 @@
 
         <div class="form-group">
           <label for="inputNamaIbu">Nama Ibu</label>
-          <input type="text" name="inputNamaIbu" id="inputNamaIbu" placeholder="Isikan Nama Ibu" required data-rule-required="true" 
+          <input type="text" name="inputNamaIbu" id="inputNamaIbu" placeholder="Isikan Nama Ibu"  
                    data-msg-required="Nama Ibu harus diisi">
         </div>
         <div class="form-group">
           <label for="inputUsiaIbu">Usia Ibu</label>
-          <input type="number" name="inputUsiaIbu" id="inputUsiaIbu" placeholder="Isikan Usia Ibu Anda" required data-rule-required="true" 
+          <input type="number" name="inputUsiaIbu" id="inputUsiaIbu" placeholder="Isikan Usia Ibu Anda"  
                    data-msg-required="Usia Ibu harus diisi">
         </div>
         <div class="form-group">
           <label for="inputPekerjaanIbu">Pekerjaan Ibu</label>
-          <input type="text" name="inputPekerjaanIbu" id="inputPekerjaanIbu" placeholder="Isikan Pekerjaan Ibu" required data-rule-required="true" 
+          <input type="text" name="inputPekerjaanIbu" id="inputPekerjaanIbu" placeholder="Isikan Pekerjaan Ibu"  
                    data-msg-required="Pekerjaan Ibu harus diisi">
         </div>
         <div class="form-group">
@@ -309,7 +313,7 @@
         </div>
         <div class="form-group">
           <label for="inputStatusIbu">Status Ibu</label>
-          <select name="inputStatusIbu" id="inputStatusIbu" required data-rule-required="true" 
+          <select name="inputStatusIbu" id="inputStatusIbu"  
                    data-msg-required="Status Ibu harus diisi">
             <option selected="selected">Pilih Status Hidup</option>
             <option value="Hidup">Hidup</option>
@@ -362,7 +366,7 @@
         <!-- Begin Total Number of Donors Who Gave in Year 1 Field -->
               <div>
                 <label for="inputPosisi1">Pilih Posisi 1</label>
-                <select name="inputPosisi1" id="inputPosisi1" required data-rule-required="true" 
+                <select name="inputPosisi1" id="inputPosisi1"  
                    data-msg-required="Posisi 1 harus diisi">
                   <option value="Manajer Keuangan(MK)">Manajer Keuangan(MK)</option>
                   <option value="Manajer Pemasaran(MP)">Manajer Pemasaran(MP)</option>
@@ -377,7 +381,7 @@
 
               <div>
                 <label for="inputPosisi2">Pilih Posisi 2</label>
-                <select name="inputPosisi2" id="inputPosisi2" required data-rule-required="true" 
+                <select name="inputPosisi2" id="inputPosisi2"  
                    data-msg-required="Posisi 2 harus diisi">
                   <option value="Manajer Keuangan(MK)">Manajer Keuangan(MK)</option>
                   <option value="Manajer Pemasaran(MP)">Manajer Pemasaran(MP)</option>
@@ -392,31 +396,31 @@
            
               <div>
                 <label for="inputPenempatan">Penempatan</label>
-                <input type="text" name="inputPenempatan" id="inputPenempatan" placeholder="Isikan Penempatan Anda" required data-rule-required="true" 
+                <input type="text" name="inputPenempatan" id="inputPenempatan" placeholder="Isikan Penempatan Anda"  
                    data-msg-required="Penempatan harus diisi">
               </div>
            
               <div>
                 <label for="inputGaji">Gaji Yang Diinginkan</label>
-                <input type="number" name="inputGaji" id="inputGaji" placeholder="Isikan Gaji yang anda inginkan" required data-rule-required="true" 
+                <input type="number" name="inputGaji" id="inputGaji" placeholder="Isikan Gaji yang anda inginkan"  
                    data-msg-required="Gaji harus diisi">
               </div>
                
               <div>
                 <label for="inputKekurangan">Kekurangan Anda</label>
-                <textarea name="inputKekurangan" id="inputKekurangan" required data-rule-required="true" 
+                <textarea name="inputKekurangan" id="inputKekurangan"  
                    data-msg-required="Kekurangan harus diisi"></textarea>
               </div>
 
               <div>
                 <label for="inputKelebihan">Kelebihan Anda</label>
-                <textarea name="inputKelebihan" id="inputKelebihan" required data-rule-required="true" 
+                <textarea name="inputKelebihan" id="inputKelebihan"  
                    data-msg-required="Kelebihan harus diisi"></textarea>
               </div>
 
               <div>
                 <label for="inputBisaKendaraan">Apakah Anda Bisa Mengendarai Kendaraan?</label>
-                <select name="inputBisaKendaraan" id="inputBisaKendaraan" required data-rule-required="true" 
+                <select name="inputBisaKendaraan" id="inputBisaKendaraan"  
                    data-msg-required="harus diisi">
                   <option value="">Pilih Jawaban</option>
                   <option value="Ya">Ya</option>
@@ -428,7 +432,7 @@
 
               <div id="sim" style="display: none; padding-left: 80px">
                 <label for="inputPunyaSim">Apakah Anda Punya SIM?</label>
-                <select name="inputPunyaSim" id="inputPunyaSim" required data-rule-required="true" 
+                <select name="inputPunyaSim" id="inputPunyaSim"  
                    data-msg-required="harus diisi">
                   <option value="">Pilih Jawaban</option>
                   <option value="Ya">Ya</option>
@@ -443,7 +447,15 @@
 
               <div>
                 <label for="inputInfoLowongan">Informasi Lowongan Kerja ini darimana?</label>
-                <input type="text" name="inputInfoLowongan" id="inputInfoLowongan" placeholder="Isikan darimana anda memperoleh informasi Lowongan Pekerjaan">
+                <select name="inputInfoLowongan" id="inputInfoLowongan"  
+                   data-msg-required="Harus diisi">
+                  <option value="">Pilih Jawaban</option>
+                  <option value="Teman">Teman</option>
+                  <option value="Saudara">Saudara</option>
+                  <option value="Website">Website</option>
+                  <option value="Media Sosial">Media Sosial</option>
+                  <option value="Lainnya">Lainnya</option>
+                </select>
               </div>
 
               <div>
@@ -453,7 +465,7 @@
 
               <div>
                 <label for="inputButaWarna">Apakah Anda Buta Warna</label>
-                <select name="inputButaWarna" id="inputButaWarna" required data-rule-required="true" 
+                <select name="inputButaWarna" id="inputButaWarna"  
                    data-msg-required="Buta Warna harus diisi">
                   <option value="">Pilih Jawaban</option>
                   <option value="Ya">Ya</option>
@@ -475,7 +487,7 @@
 
               <div>
                 <label for="inputPekerjaanSampingan">Apakah Anda Memiliki Pekerjaan Sampingan</label>
-                <select name="inputPekerjaanSampingan" id="inputPekerjaanSampingan" required data-rule-required="true" 
+                <select name="inputPekerjaanSampingan" id="inputPekerjaanSampingan"  
                    data-msg-required="Pekerjaan Sampingan harus diisi">
                   <option value="">Pilih Jawaban</option>
                   <option value="Ya">Ya</option>
@@ -570,136 +582,23 @@
               </div>
         <!-- End Final Calc -->
     <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
-    <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
+    <input id="submit" class="hs-button primary large action-button next" type="button" value="Submit">
     <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
 </fieldset>
-
   <fieldset>
     <h2 class="fs-title" id="info-form">It's on the way!</h2>
     <h3 class="fs-subtitle">Thank you for trying out our marketing grader, please go check your email for your fundraising report card and some helpful tips to improve it!</h3>
+    <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
     <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
   </fieldset>
+
   	
 
   	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
   	<script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
     <script  src="assets/js/index.js"></script>
-    <script>
-    	
-      $('button[type=submit]').on('click', function(){
-            var file_data = $('#inputIjazah').prop('files')[0];
-            var form = new FormData(document.getElementById("form-pendaftaran"));
-            // var form = $("#form-pendaftaran");
-            form.append("inputIjazah", file_data);
-            $.ajax({
-                url: "proses-pendaftaran.php",
-                type: "POST",
-                data: $('#form-pendaftaran').serialize(),
-                dataType: 'json',
-              success: function(data){
-                $('#info-form').text(data.response);
-                console.log(data);
-              },
-              error: function(data){
-                $('#info-form').text(data.response);
-                console.log(data);
-              }
-            });
-        });
-
-    </script>
-
-
-
-  
-      <script>
-      $(function() {
-
-        
-          $('#inputButaWarna').change(function(){
-              if($(this).val() == "Ya" || $(this).val() == ""){
-                  $('#buta_warna').hide();
-              }
-              else if($(this).val() == "Tidak"){
-                $.ajax({
-                    url : 'buta-warna-load-gambar.php',
-                    type: "GET",
-                    dataType: 'json',
-                    success : function(data){
-                        $('#tampil_gambar_test_buta_warna').attr('src','assets/images/buta-warna/'+data.src);
-                        $('#InputIdGambar').attr('value',data.id_gambar);
-                        $('#buta_warna').show();
-                    }
-                });
-              }
-          });
-
-          $('#inputStatus').change(function(){
-            if($(this).val() == "Belum Menikah" || $(this).val() == ""){
-              $('#status').hide();
-            }
-            else if($(this).val() == "Menikah"){
-              $('#status').show();
-          }
-          });
-
-          $('#inputStatusAyah').change(function(){
-            if($(this).val() == "Hidup" || $(this).val() == ""){
-              $('#ayah_tiri').hide();
-            }
-            else if($(this).val() == "Meninggal"){
-              $('#ayah_tiri').show();
-          }
-          });
-          
-          $('#inputStatusIbu').change(function(){
-            if($(this).val() == "Hidup" || $(this).val() == ""){
-              $('#ibu_tiri').hide();
-            }
-            else if($(this).val() == "Meninggal"){
-              $('#ibu_tiri').show();
-          }
-          });
-          
-          $('#inputPengalaman').change(function(){
-            if($(this).val() == "Tidak Ada" || $(this).val() == ""){
-              $('#pengalaman').hide();
-            }
-            else if($(this).val() == "Ya"){
-              $('#pengalaman').show();
-          }
-
-          });
-          $('#inputPekerjaanSampingan').change(function(){
-            if($(this).val() == "Tidak" || $(this).val() == ""){
-              $('#sampingan').hide();
-            }
-            else if($(this).val() == "Ya"){
-              $('#sampingan').show();
-          }
-          });
-          $('#inputPunyaSim').change(function(){
-            if($(this).val() == "Tidak" || $(this).val() == ""){
-              $('#sim_upload').hide();
-            }
-            else if($(this).val() == "Ya"){
-              $('#sim_upload').show();
-          }
-          });
-          $('#inputBisaKendaraan').change(function(){
-            if($(this).val() == "Tidak" || $(this).val() == ""){
-              $('#sim').hide();
-            }
-            else if($(this).val() == "Ya"){
-              $('#sim').show();
-          }
-          });
-
-
-
-      });
-  </script>
+    <script  src="assets/js/function.js"></script>
 
 </body>
 
