@@ -237,10 +237,12 @@
             <div>
                 <label for="inputNamaAyah">Nama Ayah <span class="required">*</span></label>
                 <input type="text" name="inputNamaAyah" id="inputNamaAyah" required data-rule-required="true" data-msg-required="Harus diisi">
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputUsiaAyah">Usia Ayah <span class="required">*</span></label>
                 <input type="number" name="inputUsiaAyah" id="inputUsiaAyah" required data-rule-required="true" data-msg-required="Harus diisi">
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputPekerjaanAyah">Pekerjaan Ayah</label>
@@ -257,6 +259,7 @@
                     <option value="Hidup">Hidup</option>
                     <option value="Meninggal">Meninggal</option>
                 </select>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <!-- INPUTAN AYAH TIRI -->
             <div id="ayah_tiri" style="display: none; padding-left: 20px">
@@ -287,10 +290,12 @@
             <div>
                 <label for="inputNamaIbu">Nama Ibu <span class="required">*</span></label>
                 <input type="text" name="inputNamaIbu" id="inputNamaIbu" required data-rule-required="true" data-msg-required="Harus diisi">
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputUsiaIbu">Usia Ibu <span class="required">*</span></label>
                 <input type="number" name="inputUsiaIbu" id="inputUsiaIbu" required data-rule-required="true" data-msg-required="Harus diisi">
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputPekerjaanIbu">Pekerjaan Ibu</label>
@@ -358,6 +363,7 @@
                     <option value="Telemarketing Cetak(TC)">Telemarketing Cetak(TC)</option>
                     <option value="Telemarketing Agen(TA)">Telemarketing Agen(TA)</option>
                 </select>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputPosisi2">Pilih Posisi 2 <span class="required">*</span></label>
@@ -371,22 +377,27 @@
                     <option value="Telemarketing Cetak(TC)">Telemarketing Cetak(TC)</option>
                     <option value="Telemarketing Agen(TA)">Telemarketing Agen(TA)</option>
                 </select>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>         
             <div>
                 <label for="inputPenempatan">Penempatan <span class="required">*</span></label>
                 <input type="text" name="inputPenempatan" id="inputPenempatan" required data-rule-required="true" data-msg-required="Harus diisi">
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>         
             <div>
                 <label for="inputGaji">Gaji Yang Diinginkan <span class="required">*</span></label>
                 <input type="number" name="inputGaji" id="inputGaji" required data-rule-required="true" data-msg-required="Harus diisi">
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputKekurangan">Kekurangan Anda <span class="required">*</span></label>
                 <textarea name="inputKekurangan" id="inputKekurangan" required data-rule-required="true" data-msg-required="Harus diisi"></textarea>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputKelebihan">Kelebihan Anda <span class="required">*</span></label>
                 <textarea name="inputKelebihan" id="inputKelebihan" required data-rule-required="true" data-msg-required="Harus diisi"></textarea>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputBisaKendaraan">Apakah Anda Bisa Mengendarai Kendaraan? <span class="required">*</span></label>
@@ -395,6 +406,7 @@
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                 </select>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div id="sim" style="display: none; padding-left: 20px">
                 <label for="inputPunyaSim">Apakah Anda Punya SIM? <span class="required">*</span></label>
@@ -403,6 +415,7 @@
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                 </select>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div id="sim_upload" style="display: none; padding-left: 20px">
                 <label for="inputUploadSim">Upload SIM Anda (ekstensi .jpg/.pdf</label>
@@ -430,6 +443,7 @@
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                 </select>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div id="buta_warna" style="display: none; padding-left: 20px">
                 <div>
@@ -448,6 +462,7 @@
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                 </select>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div id="sampingan" style="display: none; padding-left: 20px">
                 <div>
@@ -477,10 +492,12 @@
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                 </select>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputUploadSKCK">Upload SKCK <span class="required">*</span></label>
                 <input type="file" name="inputUploadSKCK" id="inputUploadSKCK" required data-rule-required="true" data-msg-required="Harus diisi">
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div class="checkbox">
                 <label for="inputKebiasaanDisukai">Kebiasaan yang dilakukan atau disukai <span class="required">*</span></label>
@@ -497,6 +514,7 @@
             <div>
                 <label for="inputMulaiKerja">Jika diterima kapan mulai kerja? <span class="required">*</span></label>
                 <input type="text" name="inputMulaiKerja" id="inputMulaiKerja" required data-rule-required="true" data-msg-required="Harus diisi">
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputKeperluanMendesak">Keperluan mendesak yang bisa dihubungi</label>
@@ -509,6 +527,7 @@
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                 </select>
+                <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputPengalamanHidup">Pengalaman hidup yang paling bersalah (deskripsikan)</label>
