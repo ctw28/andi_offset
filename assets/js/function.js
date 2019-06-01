@@ -1,14 +1,5 @@
 $(document).ready(function() {   	
 
-
-    function isNumber(event){
-        var keycode = event.keyCode;
-        if(keycode > 48 && keycode <57){
-          return true;
-        }
-          return false;
-    }
-
     $('#submit').on('click', function(){
         var suratKeterangan = $('#inputSuratKeteranganKerja').prop('files')[0];
         var ijazah = $('#inputIjazah').prop('files')[0];
@@ -29,11 +20,20 @@ $(document).ready(function() {
             contentType: false,
             processData: false,            
           success: function(data){
-              $('#info-form').text(data.response);
+              $('#info-form').text('PENDAFTARAN BERHASIL');
+              if(data.response[0] == 'failed'){
+                  $('#end-button').text('Isi ulang form');
+                  $('#info-form').text('PENDAFTARAN GAGAL');
+              }
+              else{              
+                $('#end-button').text('OK');
+                $('#end-button').attr('href', 'http://localhost/andi/index2.php');
+              }
               console.log(data);
           },
           error: function(data){
               $('#info-form').text(data.response);
+              $('#end-button').text('<- Isi ulang form');
               console.log(data);
           }
         });
