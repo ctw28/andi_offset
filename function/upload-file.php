@@ -22,10 +22,13 @@
 	}
 
 	function uploadFile($fileUpload, $folder){
-		$path 	= "assets/images/upload/".$folder; // Lokasi folder untuk menampung file
+		$path 				= "assets/images/upload/".$folder; // Lokasi folder untuk menampung file
 		$fileUploadName 	= $_FILES[$fileUpload]['name']; // mendapatkan nama file
-		move_uploaded_file($_FILES[$fileUpload]['tmp_name'], $path.'/'.$fileUploadName);
-		return $fileUploadName;
+		if(move_uploaded_file($_FILES[$fileUpload]['tmp_name'], $path.'/'.$fileUploadName)){
+			return $fileUploadName;
+		} else{
+			$_SESSION['error'][] = "Gagal Upload ".$folder.". Ada Kesalahan pada server, Silahkan Coba Lagi";			
+		}
 	}
 
 ?>

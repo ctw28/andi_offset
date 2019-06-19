@@ -23,7 +23,6 @@
 	// CEK APAKAH FILE YANG DIUPLOAD SESUAI ATAU TIDAK
 	if(!empty($_SESSION['error'])){ //JIKA TIDAK
 		$data['response'][] = 'failed';
-		$data['response'][] = $_POST['inputNama']." GAGAL BRO". $_SESSION['error'][0];
 		$data['response'][] = json_encode($_SESSION['error']);
 		echo json_encode($data);
 		die();
@@ -34,10 +33,7 @@
 		$transkrip	 			= uploadFile('inputTranskrip', 'transkrip');
 		$uploadSim				= uploadFile('inputUploadSim', 'sim');
 		$uploadSKCK				= uploadFile('inputUploadSKCK', 'skck');		
-		// $data['response'] = $_POST['inputNama']." BERHASIL INPUT BRO";
 	}
-		// $data['response'] = "WKWKWK";
-		// echo json_encode($data);
 
 	$namaLengkap 		= $_POST['inputNama'];
 	$tempatLahir 		= $_POST['inputTempatLahir'];
@@ -211,30 +207,43 @@
 
 	//UNTUK INPUTAN DATA BUTA WARNA
 
-	$butWarna			= $_POST['inputButaWarna'];  //ya atau tidak
-	$idGambar			= $_POST['InputIdGambar'];
-	$jawabanButaWarna	= $_POST['inputJawabanButaWarna'];
-	$hasilButaWarna		= '';
+	$butaWarna			= $_POST['inputButaWarna'];  //ya atau tidak
+	$idGambar			= '';
+	$jawabanButaWarna	= '';
+	$hasilButaWarna		= '';		
 
-	//CEK JAWABAN TEST BUTA WARNA
+	if($butaWarna == "Ya"){
+		$idGambar			= '0';
+		$jawabanButaWarna	= '0';
+		$hasilButaWarna		= '-';		
+	}
+	else{
+		$idGambar			= $_POST['InputIdGambar'];
+		$jawabanButaWarna	= $_POST['inputJawabanButaWarna'];
+		$hasilButaWarna		= '';
 
-	$query = "SELECT nilai from data_gambar_buta_warna WHERE id_gambar = $idGambar";
-	$hasil = mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Buta Warna: - Error: ".mysqli_error($db), E_USER_ERROR);
-	$row = mysqli_fetch_assoc($hasil);
+		//CEK JAWABAN TEST BUTA WARNA
 
-	//JIKA JAWABAN DAN NILAI COCOK, MAKA HASIL BENAR, JIKA BERBEDA MAKA HASIL SALAH
-	($row['nilai'] == $jawabanButaWarna) ? $hasilButaWarna	= 'Benar' : $hasilButaWarna	= 'Salah';
+		$query = "SELECT nilai from data_gambar_buta_warna WHERE id_gambar = $idGambar";
+		$hasil = mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Buta Warna: - Error: ".mysqli_error($db), E_USER_ERROR);
+		$row = mysqli_fetch_assoc($hasil);
+
+		//JIKA JAWABAN DAN NILAI COCOK, MAKA HASIL BENAR, JIKA BERBEDA MAKA HASIL SALAH
+		($row['nilai'] == $jawabanButaWarna) ? $hasilButaWarna	= 'Benar' : $hasilButaWarna	= 'Salah';
+
+	}
+
 	
-	$query 	= "INSERT INTO data_buta_warna (id_pelamar, id_gambar, jawaban, hasil) 
-			   VALUES ($currentIdPelamar, '$idGambar', '$jawabanButaWarna', '$hasilButaWarna')";
+	$query 	= "INSERT INTO data_buta_warna (id_pelamar, buta_warna, id_gambar, jawaban, hasil) 
+			   VALUES ($currentIdPelamar, '$idGambar', '$butaWarna', '$jawabanButaWarna', '$hasilButaWarna')";
 	mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Lamaran: - Error: ".mysqli_error($db), E_USER_ERROR);
 
 
 	if(mysqli_error($db)){
-		$data['response'] ="GAGAL INPUT FORM";
+		$data['response'] ="ada kesalahan";
 	}
 	else{
-		$data['response'] ="BERHASIL INPUT FORM";		
+		$data['response'] ="success";
 	}
 
 	echo json_encode($data);

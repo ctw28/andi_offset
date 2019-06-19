@@ -3307,4 +3307,12 @@ div#sparklinehome canvas {
 
 .detail td{
 	text-align: left;
+	vertical-align: top;
+}
+.modal-body h4{
+	 text-align: left !important;
+	 margin-top: 20px !important;
+}
+.detail{
+	width: 100%;
 }
