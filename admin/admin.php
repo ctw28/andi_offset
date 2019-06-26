@@ -218,7 +218,7 @@ $hasil = mysqli_query($db, $query);
                                         <td>
                                             <a id="<?php echo  $row['id_pelamar']?>" href="#" class="btn btn-primary tombol_detail" data-toggle="modal" data-target="#PrimaryModalalert"><i class="fa fa-eye"  style="color: white;"></i></a>
                                             <a href="#" class="btn btn-danger"><i class="fa fa-trash"  style="color: white;"></i></a>
-                                            <a href="http://localhost/andi/function/print.php" class="btn btn-success"><i class="fa fa-print"  style="color: white;"></i></a>
+                                            <a href="http://localhost/andi/function/print.php?id=<?php echo $row['id_pelamar'] ?>" class="btn btn-success"><i class="fa fa-print"  style="color: white;"></i></a>
                                         </td>
                                     </tr>
                                     <?php 
