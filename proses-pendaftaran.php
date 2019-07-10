@@ -137,23 +137,44 @@
 	// UNTUK INPUTAN DATA KELUARGA TIRI
 	$currentIdKeluarga	= mysqli_insert_id($db);
 
-	$namaAyahTiri 				= $_POST['inputNamaAyahTiri'];
-	$usiaAyahTiri 				= $_POST['inputUsiaAyahTiri'];
-	$pekerjaanAyahTiri 			= $_POST['inputPekerjaanAyahTiri'];
-	$noTelpAyahTiri 			= $_POST['inputNoTelpAyahTiri'];
-	$statusAyahTiri 			= $_POST['inputStatusAyahTiri'];
+	$punyaAyahTiri 				= $_POST['inputPunyaAyahTiri'];
+	if($punyaAyahTiri=='' || $punyaAyahTiri=='Tidak'){
+		$namaAyahTiri 		= '';
+		$usiaAyahTiri 		= '';
+		$pekerjaanAyahTiri 	= '';
+		$noTelpAyahTiri 	= '';
+		$statusAyahTiri 	= '';
+	}
+	else{
+		$namaAyahTiri 		= $_POST['inputNamaAyahTiri'];
+		$usiaAyahTiri 		= $_POST['inputUsiaAyahTiri'];
+		$pekerjaanAyahTiri 	= $_POST['inputPekerjaanAyahTiri'];
+		$noTelpAyahTiri 	= $_POST['inputNoTelpAyahTiri'];
+		$statusAyahTiri 	= $_POST['inputStatusAyahTiri'];
 
-	$namaIbuTiri 				= $_POST['inputNamaIbuTiri'];
-	$usiaIbuTiri 				= $_POST['inputUsiaIbuTiri'];
-	$pekerjaanIbuTiri 			= $_POST['inputPekerjaanIbuTiri'];
-	$noTelpIbuTiri 				= $_POST['inputNoTelpIbuTiri'];
-	$statusIbuTiri 				= $_POST['inputStatusIbuTiri'];
+	}
+
+	$punyaIbuTiri 				= $_POST['inputPunyaIbuTiri'];
+	if($punyaIbuTiri=='' || $punyaIbuTiri=='Tidak'){
+		$namaIbuTiri 		= '';
+		$usiaIbuTiri 		= '';
+		$pekerjaanIbuTiri 	= '';
+		$noTelpIbuTiri 		= '';
+		$statusIbuTiri 		= '';
+	}
+	else{	
+		$namaIbuTiri 		= $_POST['inputNamaIbuTiri'];
+		$usiaIbuTiri 		= $_POST['inputUsiaIbuTiri'];
+		$pekerjaanIbuTiri 	= $_POST['inputPekerjaanIbuTiri'];
+		$noTelpIbuTiri 		= $_POST['inputNoTelpIbuTiri'];
+		$statusIbuTiri 		= $_POST['inputStatusIbuTiri'];
+	}
 	
 
 	$query 	= "INSERT INTO data_keluarga_tiri
-			  	(id_keluarga, nama_ayah_tiri, usia_ayah_tiri, pekerjaan_ayah_tiri, no_handphone_ayah_tiri, status_ayah_tiri, nama_ibu_tiri, usia_ibu_tiri, pekerjaan_ibu_tiri, no_handphone_ibu_tiri, status_ibu_tiri) 
+			  	(id_keluarga, punya_ayah_tiri, nama_ayah_tiri, usia_ayah_tiri, pekerjaan_ayah_tiri, no_handphone_ayah_tiri, status_ayah_tiri, punya_ibu_tiri, nama_ibu_tiri, usia_ibu_tiri, pekerjaan_ibu_tiri, no_handphone_ibu_tiri, status_ibu_tiri) 
 			  	VALUES 
-			  	($currentIdKeluarga,'$namaAyahTiri','$usiaAyahTiri','$pekerjaanAyahTiri', '$noTelpAyahTiri', '$statusAyahTiri', '$namaIbuTiri','$usiaIbuTiri','$pekerjaanIbuTiri', '$noTelpIbuTiri', '$statusIbuTiri')
+			  	($currentIdKeluarga,'punyaAyahTiri','$namaAyahTiri','$usiaAyahTiri','$pekerjaanAyahTiri', '$noTelpAyahTiri', '$statusAyahTiri','$punyaIbuTiri', '$namaIbuTiri','$usiaIbuTiri','$pekerjaanIbuTiri', '$noTelpIbuTiri', '$statusIbuTiri')
 			  ";
 	mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Keluarga Tiri: - Error: ".mysqli_error($db), E_USER_ERROR);
 
@@ -240,10 +261,11 @@
 
 
 	if(mysqli_error($db)){
-		$data['response'] ="ada kesalahan";
+		$data['response'] ="failed";
 	}
 	else{
 		$data['response'] ="success";
+		$data['id_pelamar'] = $currentIdPelamar;
 	}
 
 	echo json_encode($data);

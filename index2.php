@@ -34,17 +34,17 @@
         <h2 class="fs-title">Data Pribadi</h2>
             <div>
                 <label for="inputNama">Nama Lengkap <span class="required">*</span></label>
-                <input type="text" name="inputNama" id="inputNama"  data-msg-required="Harus diisi">
+                <input type="text" name="inputNama" id="inputNama"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputTempatLahir">Tempat lahir <span class="required">*</span></label>
-                <input type="text" name="inputTempatLahir" id="inputTempatLahir"  data-msg-required="Harus diisi">        
+                <input type="text" name="inputTempatLahir" id="inputTempatLahir"  required data-msg-required="Harus diisi">        
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputTanggalLahir">Tanggal Lahir <span class="required">*</span></label>
-                <input type="date" name="inputTanggalLahir" id="inputTanggalLahir"  data-msg-required="Harus diisi">
+                <input type="date" name="inputTanggalLahir" id="inputTanggalLahir"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
@@ -59,28 +59,28 @@
             </div>
             <div>
     	    	    <label for="inputAlamatKTP">Alamat (KTP) <span class="required">*</span></label>
-    	    	    <textarea name="inputAlamatKTP" id="inputAlamatKTP"  data-msg-required="Harus diisi"></textarea>
+    	    	    <textarea name="inputAlamatKTP" id="inputAlamatKTP"  required data-msg-required="Harus diisi"></textarea>
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
       	  	<div>
         	    	<label for="inputAlamatDomisili">Alamat Domisili <span class="required">*</span></label>
-        	    	<textarea name="inputAlamatDomisili" id="inputAlamatDomisili"  data-msg-required="Harus diisi"></textarea>
+        	    	<textarea name="inputAlamatDomisili" id="inputAlamatDomisili"  required data-msg-required="Harus diisi"></textarea>
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
       	  	</div>
       	  	<div>
         	    	<label for="inputNoTelp">No. Handphone <span class="required">*</span></label>
-        	    	<input type="number" name="inputNoTelp" id="inputNoTelp"  data-msg-required="Harus diisi">
+        	    	<input type="number" name="inputNoTelp" id="inputNoTelp"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
       	  	</div>
       	  	<div>
         	    	<label for="inputEmail">Email <span class="required">*</span></label>
-        	    	<input type="email" name="inputEmail" id="inputEmail"  data-msg-required="Harus diisi">
+        	    	<input type="email" name="inputEmail" id="inputEmail"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
       	  	</div>
       	  	<div>
       	    	  <label for="inputStatus">Status <span class="required">*</span></label>
       	    	  <select name="inputStatus" id="inputStatus"   
-                          data-msg-required="Mohon Memilih Status Pernikahan">
+                          required data-msg-required="Mohon Memilih Status Pernikahan">
           	    		<option value="">Pilih</option>
           	    		<option value="Menikah">Menikah</option>
           	    		<option value="Belum Menikah">Belum Menikah</option>
@@ -123,7 +123,7 @@
         <h2 class="fs-title">Data Pengalaman Kerja</h2>
             <div>
               	<label for="inputPengalaman">Apakah Anda Memiliki Pengalaman Kerja ? <span class="required">*</span></label>
-              	<select name="inputPengalaman" id="inputPengalaman"  data-msg-required="Harus diisi">
+              	<select name="inputPengalaman" id="inputPengalaman"  required data-msg-required="Harus diisi">
                 		<option value="">Pilih</option>
                     <option value="Ya">Ada</option>
                 		<option value="Tidak Ada">Tidak Ada</option>
@@ -175,28 +175,28 @@
         <h2 class="fs-title">Data Pendidikan</h2>
           	<div>
       		    	<label for="inputNamaSekolah">Nama Universitas <span class="required">*</span></label>
-      		    	<input type="text" name="inputNamaSekolah" id="inputNamaSekolah"  data-msg-required="Harus diisi">
+      		    	<input type="text" name="inputNamaSekolah" id="inputNamaSekolah"  required data-msg-required="Harus diisi">
     		  	</div>
     		  	<div>
       		    	<label for="inputJurusan">Jurusan <span class="required">*</span></label>
-      		    	<input type="text" name="inputJurusan" id="inputJurusan"  data-msg-required="Harus diisi">
+      		    	<input type="text" name="inputJurusan" id="inputJurusan"  required data-msg-required="Harus diisi">
     		  	</div>
     		  	<div>
       		    	<label for="inputTahunMasuk">Tahun Masuk <span class="required">*</span></label>
-      		    	<input type="number" name="inputTahunMasuk" id="inputTahunMasuk"  data-msg-required="Harus diisi">
+      		    	<input type="number" name="inputTahunMasuk" id="inputTahunMasuk"  required data-msg-required="Harus diisi">
     		  	</div>
     		  	<div>
       		    	<label for="inputTahunLulus">Tahun Lulus <span class="required">*</span></label>
-      		    	<input type="number" name="inputTahunLulus" id="inputTahunLulus"  data-msg-required="Harus diisi">
+      		    	<input type="number" name="inputTahunLulus" id="inputTahunLulus"  required data-msg-required="Harus diisi">
     		  	</div>
     		  	<div>
       		    	<label for="inputIjazah">Upload Ijazah <span class="required">*</span></label>
-      		    	<input type="file" name="inputIjazah" id="inputIjazah"  data-msg-required="Harus diisi">
+      		    	<input type="file" name="inputIjazah" id="inputIjazah"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
     		  	</div>
     		  	<div>
     		    	  <label for="inputTranskrip">Upload Transkrip <span class="required">*</span></label>
-    		    	  <input type="file" name="inputTranskrip" id="inputTranskrip"  data-msg-required="Harus diisi">
+    		    	  <input type="file" name="inputTranskrip" id="inputTranskrip"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
     		  	</div>
 
@@ -236,12 +236,12 @@
         <h2 class="fs-title">Data Keluarga</h2>
             <div>
                 <label for="inputNamaAyah">Nama Ayah <span class="required">*</span></label>
-                <input type="text" name="inputNamaAyah" id="inputNamaAyah"  data-msg-required="Harus diisi">
+                <input type="text" name="inputNamaAyah" id="inputNamaAyah"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputUsiaAyah">Usia Ayah <span class="required">*</span></label>
-                <input type="number" name="inputUsiaAyah" id="inputUsiaAyah"  data-msg-required="Harus diisi">
+                <input type="number" name="inputUsiaAyah" id="inputUsiaAyah"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
@@ -254,7 +254,7 @@
             </div>
             <div>
                 <label for="inputStatusAyah">Status Ayah <span class="required">*</span></label>
-                <select name="inputStatusAyah" id="inputStatusAyah"  data-msg-required="Harus diisi">
+                <select name="inputStatusAyah" id="inputStatusAyah"  required data-msg-required="Harus diisi">
                     <option value="" selected>Pilih Status Hidup</option>
                     <option value="Hidup">Hidup</option>
                     <option value="Meninggal">Meninggal</option>
@@ -264,37 +264,48 @@
             <!-- INPUTAN AYAH TIRI -->
             <div id="ayah_tiri" style="display: none; padding-left: 20px">
                 <div>
-                    <label for="inputNamaAyahTiri">Nama Ayah Tiri (Jika Ada)</label>
-                    <input type="text" name="inputNamaAyahTiri" id="inputNamaAyahTiri">
-                </div>
-                <div>
-                    <label for="inputUsiaAyahTiri">Usia Ayah Tiri</label>
-                    <input type="number" name="inputUsiaAyahTiri" id="inputUsiaAyahTiri">
-                </div>
-                <div>
-                    <label for="inputPekerjaanAyahTiri">Pekerjaan Ayah Tiri</label>
-                    <input type="text" name="inputPekerjaanAyahTiri" id="inputPekerjaanAyahTiri">
-                </div>
-                <div>
-                    <label for="inputNoTelpAyahTiri">No Telepon Ayah Tiri</label>
-                    <input type="number" name="inputNoTelpAyahTiri" id="inputNoTelpAyahTiri">
-                </div>
-                <div>
-                    <label for="inputStatusAyahTiri">Status Ayah Tiri</label>
-                    <select name="inputStatusAyahTiri" id="inputStatusAyahTiri">
-                        <option value="Hidup">Hidup</option>
-                        <option value="Meninggal">Meninggal</option>
+                    <label for="inputPunyaAyahTiri">Apakah Punya Ayah Tiri <span class="required">*</span></label>
+                    <select name="inputPunyaAyahTiri" id="inputPunyaAyahTiri" required required data-msg-required="Harus diisi">
+                        <option value="" selected>Pilih</option>
+                        <option value="Ada">Ada</option>
+                        <option value="Tidak">Tidak Ada</option>
                     </select>
+                    <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
+                </div>
+                <div id="punya_ayah_tiri" style="display: none; padding-left: 20px">
+                    <div>
+                        <label for="inputNamaAyahTiri">Nama Ayah Tiri</label>
+                        <input type="text" name="inputNamaAyahTiri" id="inputNamaAyahTiri">
+                    </div>
+                    <div>
+                        <label for="inputUsiaAyahTiri">Usia Ayah Tiri</label>
+                        <input type="number" name="inputUsiaAyahTiri" id="inputUsiaAyahTiri">
+                    </div>
+                    <div>
+                        <label for="inputPekerjaanAyahTiri">Pekerjaan Ayah Tiri</label>
+                        <input type="text" name="inputPekerjaanAyahTiri" id="inputPekerjaanAyahTiri">
+                    </div>
+                    <div>
+                        <label for="inputNoTelpAyahTiri">No Telepon Ayah Tiri</label>
+                        <input type="number" name="inputNoTelpAyahTiri" id="inputNoTelpAyahTiri">
+                    </div>
+                    <div>
+                        <label for="inputStatusAyahTiri">Status Ayah Tiri</label>
+                        <select name="inputStatusAyahTiri" id="inputStatusAyahTiri">
+                            <option value="Hidup">Hidup</option>
+                            <option value="Meninggal">Meninggal</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div>
                 <label for="inputNamaIbu">Nama Ibu <span class="required">*</span></label>
-                <input type="text" name="inputNamaIbu" id="inputNamaIbu"  data-msg-required="Harus diisi">
+                <input type="text" name="inputNamaIbu" id="inputNamaIbu"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputUsiaIbu">Usia Ibu <span class="required">*</span></label>
-                <input type="number" name="inputUsiaIbu" id="inputUsiaIbu"  data-msg-required="Harus diisi">
+                <input type="number" name="inputUsiaIbu" id="inputUsiaIbu"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
@@ -307,7 +318,7 @@
             </div>
             <div>
                 <label for="inputStatusIbu">Status Ibu <span class="required">*</span></label>
-                <select name="inputStatusIbu" id="inputStatusIbu"  data-msg-required="Harus diisi">
+                <select name="inputStatusIbu" id="inputStatusIbu"  required data-msg-required="Harus diisi">
                     <option selected="selected">Pilih Status Hidup</option>
                     <option value="Hidup">Hidup</option>
                     <option value="Meninggal">Meninggal</option>
@@ -316,27 +327,38 @@
             <!-- INPUTAN IBU TIRI -->
             <div id="ibu_tiri" style="display: none; padding-left: 20px">
                 <div>
-                    <label for="inputNamaIbuTiri">Nama Ibu Tiri</label>
-                    <input type="text" name="inputNamaIbuTiri" id="inputNamaIbuTiri" placeholder="Isikan Nama Ibu Tiri">
-                </div>
-                <div>
-                    <label for="inputUsiaIbuTiri">Usia Ibu iri</label>
-                    <input type="number" name="inputUsiaIbuTiri" id="inputUsiaIbuTiri" placeholder="Isikan Usia Ibu Tiri Anda">
-                </div>
-                <div>
-                    <label for="inputPekerjaanIbuTiri">Pekerjaan Ibu Tiri</label>
-                    <input type="text" name="inputPekerjaanIbuTiri" id="inputPekerjaanIbuTiri" placeholder="Isikan Pekerjaan Ibu Tiri">
-                </div>
-                <div>
-                    <label for="inputNoTelpIbuTiri">No Telepon Ibu Tiri</label>
-                    <input type="number" name="inputNoTelpIbuTiri" id="inputNoTelpIbuTiri" placeholder="Isikan No Telepon Ibu Tiri">
-                </div>
-                <div>
-                    <label for="inputStatusIbuTiri">Status Ibu Tiri</label>
-                    <select name="inputStatusIbuTiri" id="inputStatusIbuTiri">
-                        <option value="Hidup">Hidup</option>
-                        <option value="Meninggal">Meninggal</option>
+                    <label for="inputPunyaIbuTiri">Apakah Punya Ibu Tiri <span class="required">*</span></label>
+                    <select name="inputPunyaIbuTiri" id="inputPunyaIbuTiri" required required data-msg-required="Harus diisi">
+                        <option value="" selected>Pilih</option>
+                        <option value="Ada">Ada</option>
+                        <option value="Tidak">Tidak Ada</option>
                     </select>
+                    <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
+                </div>
+                <div id="punya_ibu_tiri" style="display: none; padding-left: 20px">
+                    <div>
+                        <label for="inputNamaIbuTiri">Nama Ibu Tiri</label>
+                        <input type="text" name="inputNamaIbuTiri" id="inputNamaIbuTiri" placeholder="Isikan Nama Ibu Tiri">
+                    </div>
+                    <div>
+                        <label for="inputUsiaIbuTiri">Usia Ibu iri</label>
+                        <input type="number" name="inputUsiaIbuTiri" id="inputUsiaIbuTiri" placeholder="Isikan Usia Ibu Tiri Anda">
+                    </div>
+                    <div>
+                        <label for="inputPekerjaanIbuTiri">Pekerjaan Ibu Tiri</label>
+                        <input type="text" name="inputPekerjaanIbuTiri" id="inputPekerjaanIbuTiri" placeholder="Isikan Pekerjaan Ibu Tiri">
+                    </div>
+                    <div>
+                        <label for="inputNoTelpIbuTiri">No Telepon Ibu Tiri</label>
+                        <input type="number" name="inputNoTelpIbuTiri" id="inputNoTelpIbuTiri" placeholder="Isikan No Telepon Ibu Tiri">
+                    </div>
+                    <div>
+                        <label for="inputStatusIbuTiri">Status Ibu Tiri</label>
+                        <select name="inputStatusIbuTiri" id="inputStatusIbuTiri">
+                            <option value="Hidup">Hidup</option>
+                            <option value="Meninggal">Meninggal</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div>
@@ -353,7 +375,7 @@
         <h2 class="fs-title">Data Lamaran</h2>
             <div>
                 <label for="inputPosisi1">Pilih Posisi 1 <span class="required">*</span></label>
-                <select name="inputPosisi1" id="inputPosisi1"  data-msg-required="Harus diisi">
+                <select name="inputPosisi1" id="inputPosisi1"  required data-msg-required="Harus diisi">
                     <option value="Manajer Keuangan(MK)">Manajer Keuangan(MK)</option>
                     <option value="Manajer Pemasaran(MP)">Manajer Pemasaran(MP)</option>
                     <option value="Koordinator Marketing(KM)">Koordinator Marketing(KM)</option>
@@ -367,7 +389,7 @@
             </div>
             <div>
                 <label for="inputPosisi2">Pilih Posisi 2 <span class="required">*</span></label>
-                <select name="inputPosisi2" id="inputPosisi2"  data-msg-required="Harus diisi">
+                <select name="inputPosisi2" id="inputPosisi2"  required data-msg-required="Harus diisi">
                     <option value="Manajer Keuangan(MK)">Manajer Keuangan(MK)</option>
                     <option value="Manajer Pemasaran(MP)">Manajer Pemasaran(MP)</option>
                     <option value="Koordinator Marketing(KM)">Koordinator Marketing(KM)</option>
@@ -381,27 +403,27 @@
             </div>         
             <div>
                 <label for="inputPenempatan">Penempatan <span class="required">*</span></label>
-                <input type="text" name="inputPenempatan" id="inputPenempatan"  data-msg-required="Harus diisi">
+                <input type="text" name="inputPenempatan" id="inputPenempatan"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>         
             <div>
                 <label for="inputGaji">Gaji Yang Diinginkan <span class="required">*</span></label>
-                <input type="number" name="inputGaji" id="inputGaji"  data-msg-required="Harus diisi">
+                <input type="number" name="inputGaji" id="inputGaji"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputKekurangan">Kekurangan Anda <span class="required">*</span></label>
-                <textarea name="inputKekurangan" id="inputKekurangan"  data-msg-required="Harus diisi"></textarea>
+                <textarea name="inputKekurangan" id="inputKekurangan"  required data-msg-required="Harus diisi"></textarea>
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputKelebihan">Kelebihan Anda <span class="required">*</span></label>
-                <textarea name="inputKelebihan" id="inputKelebihan"  data-msg-required="Harus diisi"></textarea>
+                <textarea name="inputKelebihan" id="inputKelebihan"  required data-msg-required="Harus diisi"></textarea>
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
                 <label for="inputBisaKendaraan">Apakah Anda Bisa Mengendarai Kendaraan? <span class="required">*</span></label>
-                <select name="inputBisaKendaraan" id="inputBisaKendaraan"  data-msg-required="Harus diisi">
+                <select name="inputBisaKendaraan" id="inputBisaKendaraan"  required data-msg-required="Harus diisi">
                     <option value="">Pilih Jawaban</option>
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
@@ -410,7 +432,7 @@
             </div>
             <div id="sim" style="display: none; padding-left: 20px">
                 <label for="inputPunyaSim">Apakah Anda Punya SIM? <span class="required">*</span></label>
-                <select name="inputPunyaSim" id="inputPunyaSim"  data-msg-required="Harus diisi">
+                <select name="inputPunyaSim" id="inputPunyaSim"  required data-msg-required="Harus diisi">
                     <option value="">Pilih Jawaban</option>
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
@@ -438,7 +460,7 @@
             </div>
             <div>
                 <label for="inputButaWarna">Apakah Anda Buta Warna <span class="required">*</span></label>
-                <select name="inputButaWarna" id="inputButaWarna"  data-msg-required="Harus diisi">
+                <select name="inputButaWarna" id="inputButaWarna"  required data-msg-required="Harus diisi">
                     <option value="">Pilih Jawaban</option>
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
@@ -457,7 +479,7 @@
             </div>
             <div>
                 <label for="inputPekerjaanSampingan">Apakah Anda Memiliki Pekerjaan Sampingan <span class="required">*</span></label>
-                <select name="inputPekerjaanSampingan" id="inputPekerjaanSampingan"  data-msg-required="Harus diisi">
+                <select name="inputPekerjaanSampingan" id="inputPekerjaanSampingan"  required data-msg-required="Harus diisi">
                     <option value="">Pilih Jawaban</option>
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
@@ -487,7 +509,7 @@
             </div>
             <div>
                 <label for="inputTerlibatKejahatan">Apakah Anda Pernah Terlibat Kejahatan/Urusan Polisi/Narkoba? <span class="required">*</span></label>
-                <select name="inputTerlibatKejahatan" id="inputTerlibatKejahatan"  data-msg-required="Harus diisi">
+                <select name="inputTerlibatKejahatan" id="inputTerlibatKejahatan"  required data-msg-required="Harus diisi">
                     <option value="">Pilih</option>
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
@@ -496,7 +518,7 @@
             </div>
             <div>
                 <label for="inputUploadSKCK">Upload SKCK <span class="required">*</span></label>
-                <input type="file" name="inputUploadSKCK" id="inputUploadSKCK"  data-msg-required="Harus diisi">
+                <input type="file" name="inputUploadSKCK" id="inputUploadSKCK"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div class="checkbox">
@@ -513,7 +535,7 @@
             </div>
             <div>
                 <label for="inputMulaiKerja">Jika diterima kapan mulai kerja? <span class="required">*</span></label>
-                <input type="text" name="inputMulaiKerja" id="inputMulaiKerja"  data-msg-required="Harus diisi">
+                <input type="text" name="inputMulaiKerja" id="inputMulaiKerja"  required data-msg-required="Harus diisi">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
@@ -522,7 +544,7 @@
             </div>
             <div>
                 <label for="inputMoody">Apakah anda pekerja yang moody <span class="required">*</span></label>
-                <select name="inputMoody" id="inputMoody"  data-msg-required="Harus diisi">
+                <select name="inputMoody" id="inputMoody"  required data-msg-required="Harus diisi">
                     <option value="">Pilih</option>
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>

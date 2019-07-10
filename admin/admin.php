@@ -200,6 +200,7 @@ $hasil = mysqli_query($db, $query);
                                     <th data-field="hp">Handphone</th>
                                     <th data-field="pos1">Posisi 1</th>
                                     <th data-field="pos2">Posisi 2</th>
+                                    <th data-field="status">Status</th>
                                     <th data-field="action">Aksi</th>
                                 </tr>
                             </thead>
@@ -209,16 +210,27 @@ $hasil = mysqli_query($db, $query);
                                 foreach ($hasil as $row){
                                     ?>
                                     <tr>
-                                        <td><?php echo $i++ ?></td>
-                                        <td><?php echo $row['nama_pelamar'] ?></td>
-                                        <td><?php echo $row['email'] ?></td>
-                                        <td><?php echo $row['no_handphone'] ?></td>
-                                        <td><?php echo $row['posisi1'] ?></td>
-                                        <td><?php echo $row['posisi2'] ?></td>
+                                        <td><?= $i++ ?></td>
+                                        <td><?= $row['nama_pelamar'] ?></td>
+                                        <td><?= $row['email'] ?></td>
+                                        <td><?= $row['no_handphone'] ?></td>
+                                        <td><?= $row['posisi1'] ?></td>
+                                        <td><?= $row['posisi2'] ?></td>
+                                        <td><?php 
+                                        if($row['sudah_dihubungi']=='Belum'){
+                                            echo "<span id='hub".$row['id_pelamar']."' class='label label-warning'>".$row['sudah_dihubungi']." dihubungi</span>";
+                                        }
+                                        else{
+                                            echo "<span id='hub".$row['id_pelamar']."' class='label label-success'>".$row['sudah_dihubungi']." dihubungi</span>";
+
+                                        }
+                                        ?>
+                                          
+                                        </td>
                                         <td>
-                                            <a id="<?php echo  $row['id_pelamar']?>" href="#" class="btn btn-primary tombol_detail" data-toggle="modal" data-target="#PrimaryModalalert"><i class="fa fa-eye"  style="color: white;"></i></a>
+                                            <a id="<?=  $row['id_pelamar']?>" href="#" class="btn btn-primary tombol_detail" data-toggle="modal" data-target="#PrimaryModalalert"><i class="fa fa-eye"  style="color: white;"></i></a>
                                             <a href="#" class="btn btn-danger"><i class="fa fa-trash"  style="color: white;"></i></a>
-                                            <a href="http://localhost/andi/function/print.php?id=<?php echo $row['id_pelamar'] ?>" class="btn btn-success"><i class="fa fa-print"  style="color: white;"></i></a>
+                                            <a href="../function/print.php?id=<?= $row['id_pelamar'] ?>" class="btn btn-success"><i class="fa fa-print"  style="color: white;"></i></a>
                                         </td>
                                     </tr>
                                     <?php 
@@ -256,18 +268,51 @@ $hasil = mysqli_query($db, $query);
             <div class="modal-close-area modal-close-df">
                 <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="padding: 20px 25px">
                 <h2>Detail</h2>
-                <h4>Data Pribadi</h4>
-                <table class="detail" id="tampil-detail-pribadi">
-                </table>
-                <h4>Data Pengalaman Kerja</h4>
-                <table class="detail" id="tampil-detail-pengalaman">
-                </table>
+
+                <div>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#pribadi" aria-controls="pribadi" role="tab" data-toggle="tab">Pribadi</a></li>
+                    <li role="presentation"><a href="#pengalaman" aria-controls="pengalaman" role="tab" data-toggle="tab">Pengalaman</a></li>
+                    <li role="presentation"><a href="#pendidikan" aria-controls="pendidikan" role="tab" data-toggle="tab">Pendidikan</a></li>
+                    <li role="presentation"><a href="#keluarga" aria-controls="keluarga" role="tab" data-toggle="tab">Keluarga</a></li>
+                    <li role="presentation"><a href="#lamaran" aria-controls="lamaran" role="tab" data-toggle="tab">Lamaran</a></li>
+                  </ul>
+
+                  <!-- Tab panes -->
+                  <div class="tab-content" style="padding-left: 10px">
+                    <div role="tabpanel" class="tab-pane active" id="pribadi">
+                      <h4>Data Pribadi</h4>
+                      <table class="detail" id="tampil-detail-pribadi"></table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="pengalaman">
+                      <h4>Data Pengalaman Kerja</h4>
+                        <table class="detail" id="tampil-detail-pengalaman"></table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="pendidikan">
+                      <h4>Data Pendidikan</h4>
+                        <table class="detail" id="tampil-detail-pendidikan"></table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="keluarga">
+                      <h4>Data Keluarga</h4>
+                      <table class="detail" id="tampil-detail-keluarga"></table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="lamaran">
+                      <h4>Data Lamaran</h4>
+                      <table class="detail" id="tampil-detail-lamaran"></table>
+                    </div>
+                  </div>
+
+                </div>
+                
+                
+
             </div>
             <div class="modal-footer">
                 <a data-dismiss="modal" href="#">Cancel</a>
-                <a href="#">Process</a>
+                <a href="#" class="hubungi" id="" style="width: auto;">Tandai</a>
             </div>
         </div>
     </div>
@@ -351,34 +396,56 @@ $hasil = mysqli_query($db, $query);
                         console.log(data);
                         $("#tampil-detail-pribadi").text('');
                         $("#tampil-detail-pengalaman").text('');
-                        var row = ['','Nama', 'Tempat Lahir', 'Tanggal Lahir', 'Jenis Kelamin','Alamat (KTP)','Alamat Domisili','No. Handphone','Email','Status','Nama Pasangan','Pekerjaan Pasangan','Tempat lahir Pasangan','Tanggal Lahir Pasangan','No. Telp Pasangan','Jumlah Anak', 'Pengalaman Kerja','Nama Perusahan','Bidang','Jabatan Terakhir','Lama Kerja (dalam Bulan)','Periode Kerja','Gaji Terakhir Anda','Alasan Keluar / Berhenti','Surat Keterangan Kerja'];
+                        $("#tampil-detail-pendidikan").text('');
+                        $("#tampil-detail-keluarga").text('');
+                        $("#tampil-detail-lamaran").text('');
+                        $('.hubungi').attr('id', data[0]);
 
-                        for (var i = 1; i < 27; i++) {
+                        var row = ['','Nama', 'Tempat Lahir', 'Tanggal Lahir', 'Jenis Kelamin','Alamat (KTP)','Alamat Domisili','No. Handphone','Email','Status','Nama Pasangan','Pekerjaan Pasangan','Tempat lahir Pasangan','Tanggal Lahir Pasangan','No. Telp Pasangan','Jumlah Anak', 'Pengalaman Kerja','Nama Perusahan','Bidang','Jabatan Terakhir','Lama Kerja (dalam Bulan)','Periode Kerja','Gaji Terakhir Anda','Alasan Keluar / Berhenti','Surat Keterangan Kerja','Nama Universitas', 'Jurusan', 'Tahun Masuk','Tahun Lulus','Nama Ayah', 'Usia Ayah', 'Pekerjaan Ayah', 'No Handphone Ayah', 'Status Ayah', 'Nama Ibu', 'Usia Ibu', 'Pekerjaan Ibu', 'No Handphone Ibu', 'Status Ibu', 'Jml Saudara', 'Posisi1', 'Posisi2', 'Penempatan', 'Gaji', 'Kekurangan', 'Kelebihan', 'Bisa Kendaraan', 'Punya Sim', 'Info Lowongan', 'Kenalan', 'Pekerjaan Sampingan', 'Nama Usaha', 'Tahun Mulai', 'Posisi Sampingan', 'Bidang Sampingan', 'Terlibat Kejahatan', 'Kebiasaan Disukai', 'Mulai Kerja', 'Keperluan Mendesak', 'Moody', 'Pengalaman Hidup'];
+
+                        for (var i = 1; i < 61; i++) {
                             if(i >= 1 && i < 16){
                             $("#tampil-detail-pribadi").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
                             }
-                            if(i >= 16 && i < 27){
+                            if(i >= 16 && i < 25){
                             $("#tampil-detail-pengalaman").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
                             }
+                            if(i >= 25 && i < 29){
+                            $("#tampil-detail-pendidikan").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
+                            }                            
+                            if(i >= 29 && i < 40){
+                            $("#tampil-detail-keluarga").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
+                            }
+                            if(i >= 40 && i < 61){
+                            $("#tampil-detail-lamaran").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
+                            }
                         }
-                        // $("#tampilNama").text(data[1]);
-                        // $("#tampilTtl").text(data.tempat_lahir+", "+data.tgl_lahir);
-                        // $("#tampilJenisKelamin").text(data.jenis_kelamin);
-                        // $("#tampilAlamatKTP").text(data.alamat_ktp);
-                        // $("#no_handphone").text(data.no_handphone);
-                        // $("#tampilEmail").text(data.email);
-
-
-                        // $("#tampilPosisi1").text(data.posisi1);
-                        // $("#tampilPosisi2").text(data.posisi2);
-                        // $("#tampilPenempatan").text(data.penempatan);
-                        // $("#tampilGaji").text(data.gaji);
                     },
                     error: function(){
                         alert('ada kesalahan jaringan');
                     }
                 });
             });
+        });
+        $('.hubungi').on('click', function(){
+            var btn = ($(this).attr('id'));
+            $.ajax({
+                    url: "../hubungi.php",
+                    type: "POST",
+                    data: {
+                      id_pelamar: btn
+                    },
+                    dataType: 'json',
+                    success: function(data){
+                        console.log('#hub'+btn);
+                        $('#hub'+btn).removeClass("label-warning");
+                        $('#hub'+btn).addClass("label-success");
+                        $('#hub'+btn).text('Sudah dihubungi');                        
+                    },
+                    error: function(){
+                        alert('ada kesalahan jaringan');
+                    }
+                });
         });
     </script>
 </body>

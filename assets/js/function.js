@@ -21,7 +21,12 @@ $(document).ready(function() {
     $('#inputStatusAyah').change(function(){
         showHideElement('inputStatusAyah','ayah_tiri','Meninggal','Hidup');
     });
-
+    $('#inputPunyaAyahTiri').change(function(){
+        showHideElement('inputPunyaAyahTiri','punya_ayah_tiri','Ada','Tidak');
+    });
+    $('#inputPunyaIbuTiri').change(function(){
+        showHideElement('inputPunyaIbuTiri','punya_ibu_tiri','Ada','Tidak');
+    });
     $('#inputStatusIbu').change(function(){
         showHideElement('inputStatusIbu','ibu_tiri','Meninggal','Hidup');
     });
@@ -82,17 +87,18 @@ $(document).ready(function() {
                 for (var i = 1; i < data.response.length; i++) {
                     message += data.response[i]+'/n';
                 }
-                if(data.response[0] == 'failed'){
+                if(data.response == 'success'){              
+                    $('#info-form').text('PENDAFTARAN BERHASIL');
+                    $('#message').text('Terima Kasih. Mohon menunggu untuk informasi selanjutnya');
+                    $('#end-button').text('CETAK KARTU');
+                    $('#end-button').attr('href', 'function/print-user.php?id='+data.id_pelamar);
+                }
+                else{
                     $('#info-form').text('PENDAFTARAN GAGAL');
                     $('#end-button').text('Kembali Mengisi');
                     $('#message').text(message);
                 }
-                else if(data.response[0] == 'success'){              
-                    $('#info-form').text('PENDAFTARAN BERHASIL');
-                    $('#message').text('Terima Kasih. Mohon menunggu untuk informasi selanjutnya');
-                    $('#end-button').text('OK');
-                    $('#end-button').attr('href', 'http://localhost/andi/index2.php');
-                }
+                console.log(data.response);
             },
             error: function(data){
                 $('#info-form').text(data.response);
@@ -104,14 +110,14 @@ $(document).ready(function() {
 
 
     function hideRules(id){
-        $( "#"+id ).find("input").attr("disabled", "disabled");
+        $( "#"+id ).find("input").attr("readonly", "readonly");
         $( "#"+id ).find("input").attr("value", "");    
-        $( "#"+id ).find("textarea").attr("disabled", "disabled");
+        $( "#"+id ).find("textarea").attr("readonly", "readonly");
     }
 
     function showRules(id){
-        $( "#"+id ).find("input").removeAttr("disabled");    
-        $( "#"+id ).find("textarea").removeAttr("disabled");
+        $( "#"+id ).find("input").removeAttr("readonly");    
+        $( "#"+id ).find("textarea").removeAttr("readonly");
     }
 
     function showHideElement(input, id, val_show, val_hide){
