@@ -201,6 +201,7 @@ $hasil = mysqli_query($db, $query);
                                     <th data-field="pos1">Posisi 1</th>
                                     <th data-field="pos2">Posisi 2</th>
                                     <th data-field="status">Status</th>
+                                    <th data-field="hasil">Hasil</th>
                                     <th data-field="action">Aksi</th>
                                 </tr>
                             </thead>
@@ -226,6 +227,15 @@ $hasil = mysqli_query($db, $query);
                                         }
                                         ?>
                                           
+                                        </td>
+                                        <td>
+                                          <select <?php if($row['sudah_dihubungi']=='Belum') echo "disabled"; ?>
+
+                                          class="terimatolak" id="terimatolak<?= $row['id_pelamar'] ?>">
+                                            <option>Pilih</option>  
+                                            <option value="Y">Terima</option>
+                                            <option value="N">Tolak</option>
+                                          </select>
                                         </td>
                                         <td>
                                             <a id="<?=  $row['id_pelamar']?>" href="#" class="btn btn-primary tombol_detail" data-toggle="modal" data-target="#PrimaryModalalert"><i class="fa fa-eye"  style="color: white;"></i></a>
@@ -385,6 +395,27 @@ $hasil = mysqli_query($db, $query);
 
       <script>
         $(document).ready(function(){
+          $('.terimatolak').change(function(){
+            var id = ($(this).attr('id')).slice(11,14);
+            var terimaTolak = $(this).children("option:selected").val();
+            console.log(id);
+            $.ajax({
+                    url: "../terima-tolak.php",
+                    type: "POST",
+                    data: {
+                      id_pelamar: id,
+                      inputTerima_tolak : terimaTolak
+                    },
+                    dataType: 'json',
+                    success: function(data){
+                        alert('sukses');
+                    },
+                    error: function(data){
+                        alert('ada kesalahan jaringan');
+                        // console.log(data);
+                    }
+                });
+        });
             $('.tombol_detail').on('click', function(){
                 var btn = ($(this).attr('id'));
                 // console.log(btn);
@@ -447,6 +478,8 @@ $hasil = mysqli_query($db, $query);
                     }
                 });
         });
+        // $('.terimatolak').on('change', function(){
+        
     </script>
 </body>
 

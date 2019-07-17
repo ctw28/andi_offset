@@ -54,6 +54,13 @@ $pdf->Cell(5,6,'A. DATA PRIBADI',0,0);
 $pdf->Cell(10,5,'',0,1);
 $pdf->SetFont('Arial','',9);
 $pdf->Cell(4,6,'',0,0);
+
+
+$gambar=$row['upload_skck'];
+$pdf->Image('http://localhost/andi/assets/images/upload/skck/' . $gambar,170,20,30,40);
+
+
+
 $pdf->Cell(40,6,'ID Pelamar',0,0);
 $pdf->Cell(5,6,': ',0,0);
 $pdf->Cell(30,6,$row['id_pelamar'],0,0);
@@ -466,6 +473,7 @@ $pdf->Cell(4,6,'',0,0);
 $pdf->Cell(40,6,'Pengalaman Hidup',0,0);
 $pdf->Cell(5,6,': ',0,0);
 $pdf->Cell(30,6,$row['pengalaman_hidup'],0,0);
+
 
 $pdf->Output();
 ?>
