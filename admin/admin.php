@@ -210,7 +210,7 @@ $hasil = mysqli_query($db, $query);
                                 $i =1;
                                 foreach ($hasil as $row){
                                     ?>
-                                    <tr>
+                                    <tr id="baris<?= $row['id_pelamar'] ?>">
                                         <td><?= $i++ ?></td>
                                         <td><?= $row['nama_pelamar'] ?></td>
                                         <td><?= $row['email'] ?></td>
@@ -232,9 +232,9 @@ $hasil = mysqli_query($db, $query);
                                           <select <?php if($row['sudah_dihubungi']=='Belum') echo "disabled"; ?>
 
                                           class="terimatolak" id="terimatolak<?= $row['id_pelamar'] ?>">
-                                            <option>Pilih</option>  
-                                            <option value="Y">Terima</option>
-                                            <option value="N">Tolak</option>
+                                            <option value="">Pilih</option>  
+                                            <option value="Y" <?php if($row['terima_tolak']=='Y') echo "selected"; ?>>Terima</option>
+                                            <option value="N" value="Y" <?php if($row['terima_tolak']=='N') echo "selected"; ?>>Tolak</option>
                                           </select>
                                         </td>
                                         <td>
@@ -398,7 +398,11 @@ $hasil = mysqli_query($db, $query);
           $('.terimatolak').change(function(){
             var id = ($(this).attr('id')).slice(11,14);
             var terimaTolak = $(this).children("option:selected").val();
-            console.log(id);
+            if(terimaTolak==''){
+              alert('Pilih diterima atau tidak');
+              // $("#baris"+id ).find("td").attr("style", "color:#333");
+            }else{
+
             $.ajax({
                     url: "../terima-tolak.php",
                     type: "POST",
@@ -408,13 +412,21 @@ $hasil = mysqli_query($db, $query);
                     },
                     dataType: 'json',
                     success: function(data){
-                        alert('sukses');
+                        if(terimaTolak=='N')
+                        alert('lamaran ditolak');
+                        else
+                        alert('lamaran diterima');
+                        // $("#baris"+id ).find("td").attr("style", "color:green");
+                        
+
                     },
                     error: function(data){
                         alert('ada kesalahan jaringan');
                         // console.log(data);
                     }
                 });
+            }
+
         });
             $('.tombol_detail').on('click', function(){
                 var btn = ($(this).attr('id'));
@@ -469,6 +481,9 @@ $hasil = mysqli_query($db, $query);
                     dataType: 'json',
                     success: function(data){
                         console.log('#hub'+btn);
+
+                        $('#terimatolak'+btn).removeAttr("disabled");
+                        $('#terimatolak'+btn).attr("enabled", "enabled");
                         $('#hub'+btn).removeClass("label-warning");
                         $('#hub'+btn).addClass("label-success");
                         $('#hub'+btn).text('Sudah dihubungi');                        
@@ -478,7 +493,6 @@ $hasil = mysqli_query($db, $query);
                     }
                 });
         });
-        // $('.terimatolak').on('change', function(){
         
     </script>
 </body>

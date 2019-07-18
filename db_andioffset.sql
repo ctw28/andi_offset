@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2019 at 01:58 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Jul 18, 2019 at 10:11 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -267,20 +267,21 @@ CREATE TABLE `data_pribadi` (
   `alamat_domisili` text NOT NULL,
   `no_handphone` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `sudah_dihubungi` char(6) DEFAULT 'Belum'
+  `sudah_dihubungi` char(6) DEFAULT 'Belum',
+  `terima_tolak` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `data_pribadi`
 --
 
-INSERT INTO `data_pribadi` (`id_pelamar`, `nama_pelamar`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat_ktp`, `alamat_domisili`, `no_handphone`, `email`, `sudah_dihubungi`) VALUES
-(119, 'Moh. Bandrigo Talai', 'Kendari', '1992-06-28', 'L', 'Jalan Imam Bonjol Kelurahan Anggilowu', 'Jalan Imam Bonjol Kelurahan Anggilowu (Depan Kantor Lurah Anggilowu)', '085241800852', 'mbandrigo@gmail.com', 'Sudah'),
-(120, 'Sri Wahyuni', 'makassar', '1992-05-05', 'P', 'Perdos Unhalu', 'Perdos Unhalu', '088888888', 'srywahyuni@gmail.com', 'Sudah'),
-(121, 'Amden Junianto', 'Kendari', '1992-12-06', 'L', 'Anggoeya', 'Anggoeya', '87878', 'amjal@gmail.com', 'Sudah'),
-(201, 'Beti Kurniasih', 'Yogyakarta', '2019-07-11', 'P', 'Alamat KTP', 'alamat domisili', '5555', 'beto@gasdf.sdfhk', 'Belum'),
-(202, 'Andi Ferid', 'Kendari', '1995-07-10', 'L', 'Saranani', 'Andonohu', '987654321', 'idon@gmail.com', 'Belum'),
-(203, 'Hartina', 'makassar', '1998-05-12', 'L', 'Andonohu', 'Puuwatu', '09876565', 'hartina@gmail.com', 'Belum');
+INSERT INTO `data_pribadi` (`id_pelamar`, `nama_pelamar`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat_ktp`, `alamat_domisili`, `no_handphone`, `email`, `sudah_dihubungi`, `terima_tolak`) VALUES
+(119, 'Moh. Bandrigo Talai', 'Kendari', '1992-06-28', 'L', 'Jalan Imam Bonjol Kelurahan Anggilowu', 'Jalan Imam Bonjol Kelurahan Anggilowu (Depan Kantor Lurah Anggilowu)', '085241800852', 'mbandrigo@gmail.com', 'Sudah', NULL),
+(120, 'Sri Wahyuni', 'makassar', '1992-05-05', 'P', 'Perdos Unhalu', 'Perdos Unhalu', '088888888', 'srywahyuni@gmail.com', 'Sudah', 'N'),
+(121, 'Amden Junianto', 'Kendari', '1992-12-06', 'L', 'Anggoeya', 'Anggoeya', '87878', 'amjal@gmail.com', 'Sudah', 'Y'),
+(201, 'Beti Kurniasih', 'Yogyakarta', '2019-07-11', 'P', 'Alamat KTP', 'alamat domisili', '5555', 'beto@gasdf.sdfhk', 'Belum', NULL),
+(202, 'Andi Ferid', 'Kendari', '1995-07-10', 'L', 'Saranani', 'Andonohu', '987654321', 'idon@gmail.com', 'Belum', NULL),
+(203, 'Hartina', 'makassar', '1998-05-12', 'L', 'Andonohu', 'Puuwatu', '09876565', 'hartina@gmail.com', 'Belum', NULL);
 
 -- --------------------------------------------------------
 
