@@ -3,12 +3,11 @@
 	include('function/upload-file.php');
 
 	// UNTUK INPUTAN DATA PENDIDIKAN
-	$id_pelamar = $_POST['id_pelamar'];
+	$idPelamar 		= $_POST['id_pelamar'];
+	$statusLamaran 	= $_POST['status_lamaran'];
 
-	$query 	= "UPDATE data_pribadi SET sudah_dihubungi = 'Sudah' WHERE id_pelamar=$id_pelamar";
+	$query 	= "UPDATE data_pribadi SET status_lamaran = '$statusLamaran' WHERE id_pelamar=$idPelamar";
 	mysqli_query($db, $query) or trigger_error("Ada Kesalahan pada SQL Data Pendidikan: - Error: ".mysqli_error($db), E_USER_ERROR);
-
-
 
 	if(mysqli_error($db)){
 		$data['response'] ="ada kesalahan";

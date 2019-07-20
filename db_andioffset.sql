@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2019 at 10:11 AM
+-- Generation Time: Jul 20, 2019 at 01:16 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -47,7 +47,8 @@ INSERT INTO `data_buta_warna` (`id_buta_warna`, `id_pelamar`, `buta_warna`, `id_
 (24, 121, 'Ya', 0, 72, 'Salah'),
 (97, 201, 'Ya', 0, 0, '-'),
 (98, 202, '0', 0, 0, '-'),
-(99, 203, '7', 0, 55, 'Salah');
+(99, 203, '7', 0, 55, 'Salah'),
+(100, 204, '7', 0, 57, 'Benar');
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,8 @@ INSERT INTO `data_keluarga` (`id_keluarga`, `id_pelamar`, `nama_ayah`, `usia_aya
 (64, 121, 'Ayahnya Amden', 90, 'Guru', '', 'Hidup', 'Maryam', 45, 'Ibu Rumah Tangga', '', 'Hidup', 5),
 (144, 201, 'ayah', 44, '', '', 'Hidup', 'Ibu', 44, '', '', 'Hidup', 4),
 (145, 202, 'Makbul', 55, '', '', 'Hidup', 'Ibu ferid', 43, '', '', 'Hidup', 3),
-(146, 203, 'Ayah', 44, 'pekerjaan ayah', '123', 'Hidup', 'Ibu', 44, 'pekerjaan ibu', '456', 'Meninggal', 4);
+(146, 203, 'Ayah', 44, 'pekerjaan ayah', '123', 'Hidup', 'Ibu', 44, 'pekerjaan ibu', '456', 'Meninggal', 4),
+(147, 204, 'ayahnya ridah', 20, '', '', 'Hidup', 'ibunya ridha', 26, '', '', 'Hidup', 4);
 
 -- --------------------------------------------------------
 
@@ -142,7 +144,8 @@ INSERT INTO `data_keluarga_tiri` (`id_keluarga_tiri`, `id_keluarga`, `punya_ayah
 (60, 64, 'punya', '', 0, '', '', '', '', 'Tidak', 0, '', '', ''),
 (140, 144, 'punya', '', 0, '', '', '', '', '', 0, '', '', ''),
 (141, 145, 'punya', '', 0, '', '', '', '', '', 0, '', '', ''),
-(142, 146, 'punya', '', 0, '', '', '', '', 'Tidak', 0, '', '', '');
+(142, 146, 'punya', '', 0, '', '', '', '', 'Tidak', 0, '', '', ''),
+(143, 147, 'punya', '', 0, '', '', '', '', '', 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -188,7 +191,8 @@ INSERT INTO `data_lamaran` (`id_lamaran`, `id_pelamar`, `posisi1`, `posisi2`, `p
 (50, 121, 'Telemarketing Buku(TB)', 'Marketing(MR)', 'Raha', '4500000', 'Sedikit Kekurangan', 'Banyak Kelebihan', 'Ya', 'Ya', 'sim.jpg', 'Saudara', 'Semua saya kenal', 'Tidak', '', 0000, '', '', 'Ya', 'skck.jpg', 'Membaca, Mendengar Musik', 'Kalau dihubungi', 'saya sibuk', 'Tidak', 'banyak pengalaman hidup'),
 (130, 201, 'Telemarketing Agen(TA)', 'Supervisor Telemarketing(ST)', 'Yogyakarta', '4444', 'kurang', 'lebih', 'Ya', 'Ya', '4s4cEXxBLF8.jpg', 'Media Sosial', 'Rigo', 'Tidak', '', 0000, '', '', 'Ya', 'P2nFFy3XNCs.jpg', 'Membaca, Menulis, Traveling, Mendengar Musik', 'sekarang', 'Tidak Ada', 'Ya', 'banyak'),
 (131, 202, 'Telemarketing Agen(TA)', 'Marketing(MR)', 'Kendari', '6767', 'Kekurangan', 'Kelebihan', 'Ya', 'Ya', '8GyT1sPLdxM.jpg', 'Teman', 'Tidak Ada', 'Tidak', '', 0000, '', '', 'Ya', '66BkeCl3yxA.jpg', 'Membaca, Traveling, Nonton', 'sekarang', 'Tidak Ada', 'Ya', 'aetawet'),
-(132, 203, 'Koordinator Marketing(KM)', 'Supervisor Telemarketing(ST)', 'Makassar', '7777777777', 'sedikit kekurangan', 'banyak kelebihan', 'Tidak', '', '', 'Lainnya', 'Tidak Ada', 'Ya', 'Wiraswasta', 2010, 'CEO', 'Teknis', 'Tidak', '96Qe7evKD_U.jpg', 'Membaca', 'Menunggu', 'banyak keperluabn', 'Ya', 'selama hidup ini baik baik saja');
+(132, 203, 'Koordinator Marketing(KM)', 'Supervisor Telemarketing(ST)', 'Makassar', '7777777777', 'sedikit kekurangan', 'banyak kelebihan', 'Tidak', '', '', 'Lainnya', 'Tidak Ada', 'Ya', 'Wiraswasta', 2010, 'CEO', 'Teknis', 'Tidak', '96Qe7evKD_U.jpg', 'Membaca', 'Menunggu', 'banyak keperluabn', 'Ya', 'selama hidup ini baik baik saja'),
+(133, 204, 'Marketing(MR)', 'Supervisor Telemarketing(ST)', 'Sembarang', '1111111', 'kekurangan ridha', 'kelebihan ridha', 'Ya', 'Tidak', '', 'Teman', 'Terlalu banyak', 'Tidak', '', 0000, '', '', 'Tidak', '545781b2ed26c02.jpg', 'Menulis, Traveling', 'Secepatnya saja', 'nda ada ji', 'Ya', 'terlalu banyak');
 
 -- --------------------------------------------------------
 
@@ -217,7 +221,8 @@ INSERT INTO `data_pendidikan` (`id_pendidikan`, `id_pelamar`, `nama_sekolah`, `j
 (68, 121, 'Teknik Mesin', 'Mesin', 2019, 2020, 'foto ila.jpg', 'ket_kerja.jpg'),
 (148, 201, 'Universitas Brawijaya', 'Teknik Informatika', 2008, 2013, 'Chibi-killua-zoldyck-2011-35195466-894-894.jpg', 'ejd73p.jpg'),
 (149, 202, 'Universitas Halu Oleo', 'Teknik Informatika', 2010, 2015, '2ltsNxajdYM.jpg', '3JtRal9hK7w.jpg'),
-(150, 203, 'Universitas Hasanuddin', 'Teknik Sipil', 1998, 2004, '66BkeCl3yxA.jpg', '4fu2qkUxkLs.jpg');
+(150, 203, 'Universitas Hasanuddin', 'Teknik Sipil', 1998, 2004, '66BkeCl3yxA.jpg', '4fu2qkUxkLs.jpg'),
+(151, 204, 'Universitas 10 November', 'Teknik Sipil', 0000, 0000, 'logo bws.jpg', '002.jpg');
 
 -- --------------------------------------------------------
 
@@ -249,7 +254,8 @@ INSERT INTO `data_pengalaman` (`id_pengalaman`, `id_pelamar`, `pengalaman`, `per
 (93, 121, 'Tidak Ada', '', '', '', 0, '', '', '', ''),
 (173, 201, 'Tidak Ada', '', '', '', 0, '', '', '', ''),
 (174, 202, 'Tidak Ada', '', '', '', 0, '', '', '', ''),
-(175, 203, 'Ya', 'Perusahaan', 'bidang', 'jabatan terakhir 1', 44, '2323', '443434', 'tidak keluar', '_66ruSFHraQ.jpg');
+(175, 203, 'Ya', 'Perusahaan', 'bidang', 'jabatan terakhir 1', 44, '2323', '443434', 'tidak keluar', '_66ruSFHraQ.jpg'),
+(176, 204, 'Tidak Ada', '', '', '', 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -267,21 +273,21 @@ CREATE TABLE `data_pribadi` (
   `alamat_domisili` text NOT NULL,
   `no_handphone` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `sudah_dihubungi` char(6) DEFAULT 'Belum',
-  `terima_tolak` char(1) DEFAULT NULL
+  `status_lamaran` varchar(20) NOT NULL DEFAULT 'Belum Dihubungi'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `data_pribadi`
 --
 
-INSERT INTO `data_pribadi` (`id_pelamar`, `nama_pelamar`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat_ktp`, `alamat_domisili`, `no_handphone`, `email`, `sudah_dihubungi`, `terima_tolak`) VALUES
-(119, 'Moh. Bandrigo Talai', 'Kendari', '1992-06-28', 'L', 'Jalan Imam Bonjol Kelurahan Anggilowu', 'Jalan Imam Bonjol Kelurahan Anggilowu (Depan Kantor Lurah Anggilowu)', '085241800852', 'mbandrigo@gmail.com', 'Sudah', NULL),
-(120, 'Sri Wahyuni', 'makassar', '1992-05-05', 'P', 'Perdos Unhalu', 'Perdos Unhalu', '088888888', 'srywahyuni@gmail.com', 'Sudah', 'N'),
-(121, 'Amden Junianto', 'Kendari', '1992-12-06', 'L', 'Anggoeya', 'Anggoeya', '87878', 'amjal@gmail.com', 'Sudah', 'Y'),
-(201, 'Beti Kurniasih', 'Yogyakarta', '2019-07-11', 'P', 'Alamat KTP', 'alamat domisili', '5555', 'beto@gasdf.sdfhk', 'Belum', NULL),
-(202, 'Andi Ferid', 'Kendari', '1995-07-10', 'L', 'Saranani', 'Andonohu', '987654321', 'idon@gmail.com', 'Belum', NULL),
-(203, 'Hartina', 'makassar', '1998-05-12', 'L', 'Andonohu', 'Puuwatu', '09876565', 'hartina@gmail.com', 'Belum', NULL);
+INSERT INTO `data_pribadi` (`id_pelamar`, `nama_pelamar`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat_ktp`, `alamat_domisili`, `no_handphone`, `email`, `status_lamaran`) VALUES
+(119, 'Moh. Bandrigo Talai', 'Kendari', '1992-06-28', 'L', 'Jalan Imam Bonjol Kelurahan Anggilowu', 'Jalan Imam Bonjol Kelurahan Anggilowu (Depan Kantor Lurah Anggilowu)', '085241800852', 'mbandrigo@gmail.com', 'Ditolak'),
+(120, 'Sri Wahyuni', 'makassar', '1992-05-05', 'P', 'Perdos Unhalu', 'Perdos Unhalu', '088888888', 'srywahyuni@gmail.com', 'Ditolak'),
+(121, 'Amden Junianto', 'Kendari', '1992-12-06', 'L', 'Anggoeya', 'Anggoeya', '87878', 'amjal@gmail.com', 'Diterima'),
+(201, 'Beti Kurniasih', 'Yogyakarta', '2019-07-11', 'P', 'Alamat KTP', 'alamat domisili', '5555', 'beto@gasdf.sdfhk', 'Diterima'),
+(202, 'Andi Ferid', 'Kendari', '1995-07-10', 'L', 'Saranani', 'Andonohu', '987654321', 'idon@gmail.com', 'Ditolak'),
+(203, 'Hartina', 'makassar', '1998-05-12', 'L', 'Andonohu', 'Puuwatu', '09876565', 'hartina@gmail.com', 'Sudah Dihubungi'),
+(204, 'Ridha', 'Kendari', '2019-07-12', 'P', 'ktp', 'domisili', '9876', 'ridha@gmail.com', 'Ditolak');
 
 -- --------------------------------------------------------
 
@@ -311,7 +317,8 @@ INSERT INTO `data_status` (`id_status`, `id_pelamar`, `status`, `nama_pasangan`,
 (102, 121, 'Belum Menikah', '', '', '', '0000-00-00', '', 0),
 (182, 201, 'Menikah', 'Ajib', 'BRI', '', '2019-07-01', '', 3),
 (183, 202, 'Belum Menikah', '', '', '', '0000-00-00', '', 0),
-(184, 203, 'Menikah', 'nama pasangan', 'pekerjaan pasangan', 'tempat lashi pasangan', '2019-07-24', '5555', 3);
+(184, 203, 'Menikah', 'nama pasangan', 'pekerjaan pasangan', 'tempat lashi pasangan', '2019-07-24', '5555', 3),
+(185, 204, 'Belum Menikah', '', '', '', '0000-00-00', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -387,7 +394,7 @@ ALTER TABLE `data_status`
 -- AUTO_INCREMENT for table `data_buta_warna`
 --
 ALTER TABLE `data_buta_warna`
-  MODIFY `id_buta_warna` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id_buta_warna` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `data_gambar_buta_warna`
@@ -399,43 +406,43 @@ ALTER TABLE `data_gambar_buta_warna`
 -- AUTO_INCREMENT for table `data_keluarga`
 --
 ALTER TABLE `data_keluarga`
-  MODIFY `id_keluarga` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+  MODIFY `id_keluarga` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT for table `data_keluarga_tiri`
 --
 ALTER TABLE `data_keluarga_tiri`
-  MODIFY `id_keluarga_tiri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `id_keluarga_tiri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT for table `data_lamaran`
 --
 ALTER TABLE `data_lamaran`
-  MODIFY `id_lamaran` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `id_lamaran` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT for table `data_pendidikan`
 --
 ALTER TABLE `data_pendidikan`
-  MODIFY `id_pendidikan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id_pendidikan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `data_pengalaman`
 --
 ALTER TABLE `data_pengalaman`
-  MODIFY `id_pengalaman` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+  MODIFY `id_pengalaman` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `data_pribadi`
 --
 ALTER TABLE `data_pribadi`
-  MODIFY `id_pelamar` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
+  MODIFY `id_pelamar` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
 
 --
 -- AUTO_INCREMENT for table `data_status`
 --
 ALTER TABLE `data_status`
-  MODIFY `id_status` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `id_status` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
 
 --
 -- Constraints for dumped tables

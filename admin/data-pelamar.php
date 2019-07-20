@@ -1,5 +1,6 @@
 <?php 
 include('../config/config.php');
+include('../config/base-url.php');
 
 $query  = "SELECT * FROM data_pribadi dp INNER JOIN data_lamaran dl WHERE dp.id_pelamar = dl.id_pelamar";
 $hasil = mysqli_query($db, $query);
@@ -97,12 +98,12 @@ $hasil = mysqli_query($db, $query);
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
                             <li>
-                                <a href="#"><i class="fa big-icon fa-desktop icon-wrap"></i>
+                                <a href="<?= $baseUrl ?>/admin"><i class="fa big-icon fa-desktop icon-wrap"></i>
                                   <span class="mini-click-non">Dashboard</span>
                               </a>
                           </li>
                           <li>
-                            <a href="#" aria-hidden="true"><i class="fa big-icon fa-table icon-wrap"></i>
+                            <a href="<?= $baseUrl ?>admin/data-pelamar.php" aria-hidden="true"><i class="fa big-icon fa-table icon-wrap"></i>
                                 <span class="mini-click-non">Daftar Pelamar</span>
                             </a>
                         </li>
@@ -190,57 +191,51 @@ $hasil = mysqli_query($db, $query);
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
 
-                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
                             data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                             <thead>
                                 <tr>
                                     <th data-field="id">NO</th>
                                     <th data-field="name">Nama Pelamar</th>
-                                    <th data-field="email">Email</th>
                                     <th data-field="hp">Handphone</th>
+                                    <th data-field="email">Email</th>
                                     <th data-field="pos1">Posisi 1</th>
                                     <th data-field="pos2">Posisi 2</th>
                                     <th data-field="status">Status</th>
-                                    <th data-field="hasil">Hasil</th>
                                     <th data-field="action">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
                                 $i =1;
+                                $label='';
                                 foreach ($hasil as $row){
                                     ?>
                                     <tr id="baris<?= $row['id_pelamar'] ?>">
                                         <td><?= $i++ ?></td>
                                         <td><?= $row['nama_pelamar'] ?></td>
-                                        <td><?= $row['email'] ?></td>
                                         <td><?= $row['no_handphone'] ?></td>
+                                        <td><?= $row['email'] ?></td>
                                         <td><?= $row['posisi1'] ?></td>
                                         <td><?= $row['posisi2'] ?></td>
                                         <td><?php 
-                                        if($row['sudah_dihubungi']=='Belum'){
-                                            echo "<span id='hub".$row['id_pelamar']."' class='label label-warning'>".$row['sudah_dihubungi']." dihubungi</span>";
-                                        }
-                                        else{
-                                            echo "<span id='hub".$row['id_pelamar']."' class='label label-success'>".$row['sudah_dihubungi']." dihubungi</span>";
+                                        if($row['status_lamaran']=='Belum Dihubungi')
+                                          $label='label-warning';
+                                        else if($row['status_lamaran']=='Sudah Dihubungi')
+                                          $label='label-success';
+                                        else if($row['status_lamaran']=='Diterima')
+                                          $label='label-primary';
+                                        else if($row['status_lamaran']=='Ditolak')
+                                          $label='label-danger';
 
-                                        }
+                                        echo "<span id='status".$row['id_pelamar']."' class='label $label'>".$row['status_lamaran']."</span>";                                        
                                         ?>
                                           
                                         </td>
                                         <td>
-                                          <select <?php if($row['sudah_dihubungi']=='Belum') echo "disabled"; ?>
-
-                                          class="terimatolak" id="terimatolak<?= $row['id_pelamar'] ?>">
-                                            <option value="">Pilih</option>  
-                                            <option value="Y" <?php if($row['terima_tolak']=='Y') echo "selected"; ?>>Terima</option>
-                                            <option value="N" value="Y" <?php if($row['terima_tolak']=='N') echo "selected"; ?>>Tolak</option>
-                                          </select>
-                                        </td>
-                                        <td>
-                                            <a id="<?=  $row['id_pelamar']?>" href="#" class="btn btn-primary tombol_detail" data-toggle="modal" data-target="#PrimaryModalalert"><i class="fa fa-eye"  style="color: white;"></i></a>
-                                            <a href="#" class="btn btn-danger"><i class="fa fa-trash"  style="color: white;"></i></a>
-                                            <a href="../function/print.php?id=<?= $row['id_pelamar'] ?>" class="btn btn-success"><i class="fa fa-print"  style="color: white;"></i></a>
+                                            <a title="Lihat Detail" id="<?=  $row['id_pelamar']?>" href="#" class="btn btn-primary tombol_detail" data-toggle="modal" data-target="#PrimaryModalalert"><i class="fa fa-eye"  style="color: white;"></i></a>
+                                            <a title="Cetak Data Pelamar" href="../function/print.php?id=<?= $row['id_pelamar'] ?>" class="btn btn-success"><i class="fa fa-print"  style="color: white;"></i></a>
+                                            <a title="Hapus Data Pelamar" href="#" class="btn btn-danger"><i class="fa fa-trash"  style="color: white;"></i></a>
                                         </td>
                                     </tr>
                                     <?php 
@@ -278,8 +273,8 @@ $hasil = mysqli_query($db, $query);
             <div class="modal-close-area modal-close-df">
                 <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
             </div>
-            <div class="modal-body" style="padding: 20px 25px">
-                <h2>Detail</h2>
+            <div class="modal-body" style="padding: 20px">
+                <h2>Detail Pelamar</h2>
 
                 <div>
                   <!-- Nav tabs -->
@@ -320,9 +315,11 @@ $hasil = mysqli_query($db, $query);
                 
 
             </div>
-            <div class="modal-footer">
-                <a data-dismiss="modal" href="#">Cancel</a>
-                <a href="#" class="hubungi" id="" style="width: auto;">Tandai</a>
+            <div style="padding: 10px 5px; text-align: center;">
+                <a href="#" class="btn btn-success status" id="hub">Hubungi</a>
+                <a href="#" class="btn btn-primary status" id="terima">Terima</a>
+                <a href="#" class="btn btn-danger status" id="tolak">Tolak</a>
+                <!-- <a class="btn btn-d" data-dismiss="modal" href="#">Keluar</a> -->
             </div>
         </div>
     </div>
@@ -394,43 +391,11 @@ $hasil = mysqli_query($db, $query);
 
 
       <script>
+        var idnya;
         $(document).ready(function(){
-          $('.terimatolak').change(function(){
-            var id = ($(this).attr('id')).slice(11,14);
-            var terimaTolak = $(this).children("option:selected").val();
-            if(terimaTolak==''){
-              alert('Pilih diterima atau tidak');
-              // $("#baris"+id ).find("td").attr("style", "color:#333");
-            }else{
-
-            $.ajax({
-                    url: "../terima-tolak.php",
-                    type: "POST",
-                    data: {
-                      id_pelamar: id,
-                      inputTerima_tolak : terimaTolak
-                    },
-                    dataType: 'json',
-                    success: function(data){
-                        if(terimaTolak=='N')
-                        alert('lamaran ditolak');
-                        else
-                        alert('lamaran diterima');
-                        // $("#baris"+id ).find("td").attr("style", "color:green");
-                        
-
-                    },
-                    error: function(data){
-                        alert('ada kesalahan jaringan');
-                        // console.log(data);
-                    }
-                });
-            }
-
-        });
             $('.tombol_detail').on('click', function(){
                 var btn = ($(this).attr('id'));
-                // console.log(btn);
+                idnya = btn;
                 $.ajax({
                     url: "../detail.php?id="+btn,
                     type: "GET",
@@ -442,53 +407,70 @@ $hasil = mysqli_query($db, $query);
                         $("#tampil-detail-pendidikan").text('');
                         $("#tampil-detail-keluarga").text('');
                         $("#tampil-detail-lamaran").text('');
-                        $('.hubungi').attr('id', data[0]);
 
                         var row = ['','Nama', 'Tempat Lahir', 'Tanggal Lahir', 'Jenis Kelamin','Alamat (KTP)','Alamat Domisili','No. Handphone','Email','Status','Nama Pasangan','Pekerjaan Pasangan','Tempat lahir Pasangan','Tanggal Lahir Pasangan','No. Telp Pasangan','Jumlah Anak', 'Pengalaman Kerja','Nama Perusahan','Bidang','Jabatan Terakhir','Lama Kerja (dalam Bulan)','Periode Kerja','Gaji Terakhir Anda','Alasan Keluar / Berhenti','Surat Keterangan Kerja','Nama Universitas', 'Jurusan', 'Tahun Masuk','Tahun Lulus','Nama Ayah', 'Usia Ayah', 'Pekerjaan Ayah', 'No Handphone Ayah', 'Status Ayah', 'Nama Ibu', 'Usia Ibu', 'Pekerjaan Ibu', 'No Handphone Ibu', 'Status Ibu', 'Jml Saudara', 'Posisi1', 'Posisi2', 'Penempatan', 'Gaji', 'Kekurangan', 'Kelebihan', 'Bisa Kendaraan', 'Punya Sim', 'Info Lowongan', 'Kenalan', 'Pekerjaan Sampingan', 'Nama Usaha', 'Tahun Mulai', 'Posisi Sampingan', 'Bidang Sampingan', 'Terlibat Kejahatan', 'Kebiasaan Disukai', 'Mulai Kerja', 'Keperluan Mendesak', 'Moody', 'Pengalaman Hidup'];
-
+                        var rowColor = "";
                         for (var i = 1; i < 61; i++) {
+                          if(i%2==0)
+                            rowColor = '224,235,255';
+                          else
+                            rowColor = "";
+
                             if(i >= 1 && i < 16){
-                            $("#tampil-detail-pribadi").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
+                            $("#tampil-detail-pribadi").append('<tr style="background-color:rgba('+rowColor+')"><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
                             }
                             if(i >= 16 && i < 25){
-                            $("#tampil-detail-pengalaman").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
+                            $("#tampil-detail-pengalaman").append('<tr style="background-color:rgba('+rowColor+')"><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
                             }
                             if(i >= 25 && i < 29){
-                            $("#tampil-detail-pendidikan").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
+                            $("#tampil-detail-pendidikan").append('<tr style="background-color:rgba('+rowColor+')"><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
                             }                            
                             if(i >= 29 && i < 40){
-                            $("#tampil-detail-keluarga").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
+                            $("#tampil-detail-keluarga").append('<tr style="background-color:rgba('+rowColor+')"><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
                             }
                             if(i >= 40 && i < 61){
-                            $("#tampil-detail-lamaran").append('<tr><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
+                            $("#tampil-detail-lamaran").append('<tr style="background-color:rgba('+rowColor+')"><td width="35%">'+row[i]+'</td><td width="5%"> : </td><td>'+ data[i]+'</td></tr>');                                
                             }
                         }
                     },
-                    error: function(){
+                    error: function(data){
+                        console.log(data);
                         alert('ada kesalahan jaringan');
                     }
                 });
             });
         });
-        $('.hubungi').on('click', function(){
-            var btn = ($(this).attr('id'));
+        $('.status').on('click', function(){
+            var status = ($(this).attr('id'));
+            if(status=='hub'){
+              statusnya='Sudah Dihubungi';
+              labelnya='label label-success';
+            }
+            if(status=='terima'){
+              statusnya='Diterima';
+              labelnya='label label-primary';
+            }
+            if(status=='tolak'){
+              statusnya='Ditolak';
+              labelnya='label label-danger';
+            }
+
             $.ajax({
-                    url: "../hubungi.php",
+                    url: "../status-change.php",
                     type: "POST",
                     data: {
-                      id_pelamar: btn
+                      id_pelamar: idnya,
+                      status_lamaran : statusnya
                     },
                     dataType: 'json',
                     success: function(data){
-                        console.log('#hub'+btn);
-
-                        $('#terimatolak'+btn).removeAttr("disabled");
-                        $('#terimatolak'+btn).attr("enabled", "enabled");
-                        $('#hub'+btn).removeClass("label-warning");
-                        $('#hub'+btn).addClass("label-success");
-                        $('#hub'+btn).text('Sudah dihubungi');                        
+                        console.log(data);
+                        $('#status'+idnya).removeClass();
+                        $('#status'+idnya).addClass(labelnya);
+                        $('#status'+idnya).text(statusnya);                        
                     },
-                    error: function(){
+                    error: function(data){
+                        console.log(data);
                         alert('ada kesalahan jaringan');
                     }
                 });
