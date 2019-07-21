@@ -1,6 +1,5 @@
 <?php 
 	include('config/config.php');
-	include('function/upload-file.php');
 
 	// UNTUK INPUTAN DATA PENDIDIKAN
 	$idPelamar 		= $_POST['id_pelamar'];

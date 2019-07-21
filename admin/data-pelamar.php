@@ -235,7 +235,7 @@ $hasil = mysqli_query($db, $query);
                                         <td>
                                             <a title="Lihat Detail" id="<?=  $row['id_pelamar']?>" href="#" class="btn btn-primary tombol_detail" data-toggle="modal" data-target="#PrimaryModalalert"><i class="fa fa-eye"  style="color: white;"></i></a>
                                             <a title="Cetak Data Pelamar" href="../function/print.php?id=<?= $row['id_pelamar'] ?>" class="btn btn-success"><i class="fa fa-print"  style="color: white;"></i></a>
-                                            <a title="Hapus Data Pelamar" href="#" class="btn btn-danger"><i class="fa fa-trash"  style="color: white;"></i></a>
+                                            <a title="Hapus Data Pelamar" href="../hapus-data.php?id=<?=  $row['id_pelamar']?>" onclick="return confirm('Yakin Hapus?');" class="btn btn-danger"><i class="fa fa-trash"  style="color: white;"></i></a>
                                         </td>
                                     </tr>
                                     <?php 

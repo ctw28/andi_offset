@@ -1,5 +1,6 @@
 <?php 
 include('../config/config.php');
+include('../config/base-url.php');
 require('../library/fpdf/fpdf.php');
 include('other-function.php');
 
@@ -89,7 +90,7 @@ $pdf->Cell(5,6,': ','',0,'',false);
 $pdf->Cell(140,6,$row['alamat_domisili'],'',0,'',false);
 
 $gambar=$row['upload_skck'];
-$pdf->Image('http://localhost/andi_offset/assets/images/upload/skck/' . $gambar,170,20,30,40);
+$pdf->Image($baseUrl.'assets/images/upload/skck/' . $gambar,170,20,30,40);
 
 $pdf->Ln();
 
