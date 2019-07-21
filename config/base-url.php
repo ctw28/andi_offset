@@ -1,3 +1,3 @@
 <?php
-	$baseUrl = 'http://localhost/andi/'
+	$baseUrl = 'http://localhost/andi_offset/'
 ?>
