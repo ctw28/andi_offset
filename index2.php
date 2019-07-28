@@ -154,7 +154,7 @@
                 </div>
                 <div>
                     <label for="inputGajiTerakhir">Gaji Terakhir Anda</label>
-                    <input type="text" name="inputGajiTerakhir" id="inputGajiTerakhir" placeholder="Isikan Gaji Terakhir Anda">
+                    <input type="text" name="inputGajiTerakhir" id="inputGajiTerakhir" placeholder="Isikan Gaji Terakhir Anda" data-a-sign="Rp. " data-a-dec="," data-a-sep=".">
                 </div>
                 <div>
                     <label for="inputAlasanKeluar">Alasan Keluar / Berhenti</label>
@@ -408,7 +408,7 @@
             </div>         
             <div>
                 <label for="inputGaji">Gaji Yang Diinginkan <span class="required">*</span></label>
-                <input type="number" name="inputGaji" id="inputGaji"  required data-msg-required="Harus diisi">
+                <input type="text" name="inputGaji" id="inputGaji" required data-msg-required="Harus diisi" data-a-sign="Rp. " data-a-dec="," data-a-sep=".">
                 <span class="error1" style="display: none;"><i class="error-log fa fa-exclamation-triangle"></i></span>
             </div>
             <div>
@@ -573,6 +573,13 @@
   	<script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
     <script  src="assets/js/index.js"></script>
     <script  src="assets/js/function.js"></script>
+    <script type="text/javascript" src="function/autoNumeric/autoNumeric.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#inputGajiTerakhir').autoNumeric('init');
+        $('#inputGaji').autoNumeric('init');
+    });
+</script>
 
 </body>
 </html>

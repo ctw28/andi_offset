@@ -435,10 +435,25 @@ display: block;
   margin-top: 45px;
 }
 
-.steps .next, .steps .previous{
+/*.steps .next, .steps .previous{
   display:none;
 }
+*/
+.info h1{
+  font-size: 14px !important;
+}
+.steps label{
+  width: 100%;
+  padding-top: 0;
+}
+form, fieldset{
+  margin-top: 10px !important;
+}
+.steps fieldset:not(:first-of-type) {
 
+    display: none;
+
+}
 .steps .explanation{
   display:none;
 }

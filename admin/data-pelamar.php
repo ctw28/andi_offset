@@ -316,9 +316,9 @@ $hasil = mysqli_query($db, $query);
 
             </div>
             <div style="padding: 10px 5px; text-align: center;">
-                <a href="#" class="btn btn-success status" id="hub">Hubungi</a>
-                <a href="#" class="btn btn-primary status" id="terima">Terima</a>
-                <a href="#" class="btn btn-danger status" id="tolak">Tolak</a>
+                <a class="btn btn-success status" id="hub">Hubungi</a>
+                <a class="btn btn-primary status" id="terima">Terima</a>
+                <a class="btn btn-danger status" id="tolak">Tolak</a>
                 <!-- <a class="btn btn-d" data-dismiss="modal" href="#">Keluar</a> -->
             </div>
         </div>
@@ -409,8 +409,26 @@ $hasil = mysqli_query($db, $query);
                         $("#tampil-detail-lamaran").text('');
 
                         var row = ['','Nama', 'Tempat Lahir', 'Tanggal Lahir', 'Jenis Kelamin','Alamat (KTP)','Alamat Domisili','No. Handphone','Email','Status','Nama Pasangan','Pekerjaan Pasangan','Tempat lahir Pasangan','Tanggal Lahir Pasangan','No. Telp Pasangan','Jumlah Anak', 'Pengalaman Kerja','Nama Perusahan','Bidang','Jabatan Terakhir','Lama Kerja (dalam Bulan)','Periode Kerja','Gaji Terakhir Anda','Alasan Keluar / Berhenti','Surat Keterangan Kerja','Nama Universitas', 'Jurusan', 'Tahun Masuk','Tahun Lulus','Nama Ayah', 'Usia Ayah', 'Pekerjaan Ayah', 'No Handphone Ayah', 'Status Ayah', 'Nama Ibu', 'Usia Ibu', 'Pekerjaan Ibu', 'No Handphone Ibu', 'Status Ibu', 'Jml Saudara', 'Posisi1', 'Posisi2', 'Penempatan', 'Gaji', 'Kekurangan', 'Kelebihan', 'Bisa Kendaraan', 'Punya Sim', 'Info Lowongan', 'Kenalan', 'Pekerjaan Sampingan', 'Nama Usaha', 'Tahun Mulai', 'Posisi Sampingan', 'Bidang Sampingan', 'Terlibat Kejahatan', 'Kebiasaan Disukai', 'Mulai Kerja', 'Keperluan Mendesak', 'Moody', 'Pengalaman Hidup'];
+                          console.log(data[61]);
                         var rowColor = "";
+                          if(data[61]=='Sudah Dihubungi'){
+                            $("#hub").hide();
+                            $("#tolak").show();
+                            $("#terima").show();
+                          }
+                          else if(data[61]=='Belum Dihubungi'){
+                            $("#hub").show();
+                            $("#tolak").hide();
+                            $("#terima").hide();                            
+                          }
+                          else{
+                            $("#hub").hide();
+                            $("#tolak").show();
+                            $("#terima").show();
+
+                          }
                         for (var i = 1; i < 61; i++) {
+
                           if(i%2==0)
                             rowColor = '224,235,255';
                           else
